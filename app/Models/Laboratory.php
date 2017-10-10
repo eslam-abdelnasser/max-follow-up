@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Laboratory extends Model
+{
+    //
+    public function description(){
+
+        return $this->hasMany('App\Models\LaboratoryDescription','laboratory_id');
+    }
+}
