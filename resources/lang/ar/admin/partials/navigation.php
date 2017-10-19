@@ -56,4 +56,6 @@ return [
     'add_new_admission_role' => 'إضافه دور قبول جديد',
     'education_level' => 'مستوى التعليم',
     'add_new_education_level' => 'إضافه مستوى تعليمى',
+    'who' => 'من نحن',
+    'director_words' => 'كلمة المدير'
 ];

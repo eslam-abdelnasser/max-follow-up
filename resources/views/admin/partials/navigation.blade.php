@@ -21,25 +21,7 @@
             </li>
             <!-- END SIDEBAR TOGGLER BUTTON -->
             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
-            <li class="sidebar-search-wrapper">
-                <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-                <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
-                <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
-                <form class="sidebar-search  " action="page_general_search_3.html" method="POST">
-                    <a href="javascript:;" class="remove">
-                        <i class="icon-close"></i>
-                    </a>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="{{trans('admin/partials/navigation.search')}}">
-                        <span class="input-group-btn">
-                                            <a href="javascript:;" class="btn submit">
-                                                <i class="icon-magnifier"></i>
-                                            </a>
-                                        </span>
-                    </div>
-                </form>
-                <!-- END RESPONSIVE QUICK SEARCH FORM -->
-            </li>
+
             <li class="nav-item start active open">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
@@ -84,7 +66,7 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('language.index'))
+                    @if(Auth::guard('admin')->user()->can('languages.index'))
                         <li class="nav-item start">
                             <a href="{{route('languages.index')}}" class="nav-link ">
                                 <i class="icon-bar-chart"></i>
@@ -93,7 +75,7 @@
                             </a>
                         </li>
                     @endif
-                    @if(Auth::guard('admin')->user()->can('language.create'))
+                    @if(Auth::guard('admin')->user()->can('languages.create'))
                         <li class="nav-item start">
                             <a href="{{route('languages.create')}}" class="nav-link ">
                                 <i class="icon-bar-chart"></i>
@@ -146,39 +128,19 @@
                 </ul>
             </li>
 
+
             <li class="heading">
                 <h3 class="uppercase">{{trans('admin/partials/navigation.pages')}}</h3>
             </li>
-
-
             <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.slider_show')}}</span>
+                    <span class="title">{{trans('admin/partials/navigation.about_us')}}</span>
                     <span class="selected"></span>
                     <span class="arrow"></span>
                 </a>
+
                 <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('slider.index'))
-                        <li class="nav-item start">
-                            <a href="{{route('slider.index')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">Sliders</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                    @if(Auth::guard('admin')->user()->can('slider.create'))
-                            <li class="nav-item start">
-                            <a href="{{route('slider.create')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">Create slider</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
             @if(Auth::guard('admin')->user()->can('admin.about.index'))
                 <li class="nav-item start">
                     <a href="{{route('admin.about.index')}}" class="nav-link nav-toggle">
@@ -189,62 +151,24 @@
             @endif
 
 
-            <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.services')}}</span>
-                    <span class="selected"></span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('services.index'))
-                        <li class="nav-item start">
-                            <a href="{{route('services.index')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.services')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                    @if(Auth::guard('admin')->user()->can('services.create'))
-                        <li class="nav-item start">
-                            <a href="{{route('services.create')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.create_new_service')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
+            @if(Auth::guard('admin')->user()->can('admin.who.index'))
+                <li class="nav-item start">
+                    <a href="{{route('admin.who.index')}}" class="nav-link nav-toggle">
+                        <i class="icon-puzzle"></i>
+                        <span class="title">{{trans('admin/partials/navigation.who')}}</span>
+                    </a>
+                </li>
+            @endif
 
+            @if(Auth::guard('admin')->user()->can('admin.director-words.index'))
+                <li class="nav-item start">
+                    <a href="{{route('admin.director-words.index')}}" class="nav-link nav-toggle">
+                        <i class="icon-puzzle"></i>
+                        <span class="title">{{trans('admin/partials/navigation.director_words')}}</span>
+                    </a>
+                </li>
+            @endif
 
-            <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.faqs')}}</span>
-                    <span class="selected"></span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('faq.index'))
-                        <li class="nav-item start">
-                            <a href="{{route('faqs.index')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.faqs')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                    @if(Auth::guard('admin')->user()->can('faq.create'))
-                        <li class="nav-item start">
-                            <a href="{{route('faqs.create')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.create_new_faq')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
                 </ul>
             </li>
 
@@ -278,35 +202,38 @@
                 </ul>
             </li>
 
+         {{-- start why us module --}}
 
             <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.careers')}}</span>
+                    <span class="title">Why us </span>
                     <span class="selected"></span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('careers.index'))
+                    @if(Auth::guard('admin')->user()->can('why-us.index'))
                         <li class="nav-item start">
-                            <a href="{{route('careers.index')}}" class="nav-link ">
+                            <a href="{{route('why-us.index')}}" class="nav-link ">
                                 <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.careers')}}</span>
+                                <span class="title">show why us</span>
                                 <span class="selected"></span>
                             </a>
                         </li>
                     @endif
-                    @if(Auth::guard('admin')->user()->can('services.create'))
+                    @if(Auth::guard('admin')->user()->can('why-us.create'))
                         <li class="nav-item start">
-                            <a href="{{route('careers.create')}}" class="nav-link ">
+                            <a href="{{route('why-us.create')}}" class="nav-link ">
                                 <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.create_new_career')}}</span>
+                                <span class="title">Create why us</span>
                                 <span class="selected"></span>
                             </a>
                         </li>
                     @endif
                 </ul>
             </li>
+         {{-- start why us module --}}
+
 
 
 
@@ -339,218 +266,74 @@
                 </ul>
             </li>
 
+             {{---  start team navigation  --}}
+
+            <li class="heading">
+                <h3 class="uppercase">Team</h3>
+            </li>
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Team</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+
+                   <li class="nav-item start">
+                       <a href="javascript:;" class="nav-link nav-toggle">
+                           <i class="icon-home"></i>
+                           <span class="title">Team</span>
+                           <span class="selected"></span>
+                           <span class="arrow"></span>
+                       </a>
+                       <ul class="sub-menu">
+                    @if(Auth::guard('admin')->user()->can('team.index'))
+                        <li class="nav-item start">
+                            <a href="{{route('team.index')}}" class="nav-link nav-toggle">
+                                <i class="icon-puzzle"></i>
+                                <span class="title">Show team</span>
+                            </a>
+                        </li>
+                        @endif
+
+
+                        @if(Auth::guard('admin')->user()->can('team.create'))
+                            <li class="nav-item start">
+                                <a href="{{route('team.create')}}" class="nav-link nav-toggle">
+                                    <i class="icon-puzzle"></i>
+                                    <span class="title">Create team</span>
+                                </a>
+                            </li>
+                        @endif
+                       </ul>
+                   </li>
+
+                </ul>
+            </li>
+             {{---  end team navigation  --}}
+
+
+
+
+
 
 
             <li class="heading">
                 <h3 class="uppercase">{{trans('admin/partials/navigation.my_school')}}</h3>
             </li>
 
-            <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.teacher')}}</span>
-                    <span class="selected"></span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('teachers.index'))
-                        <li class="nav-item start">
-                            <a href="{{route('teachers.index')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.teacher')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                    @if(Auth::guard('admin')->user()->can('teachers.create'))
-                        <li class="nav-item start">
-                            <a href="{{route('teachers.create')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.add_new_teacher')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
-
-
-            <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.laboratory')}}</span>
-                    <span class="selected"></span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('laboratories.index'))
-                        <li class="nav-item start">
-                            <a href="{{route('laboratories.index')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.laboratory')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                    @if(Auth::guard('admin')->user()->can('laboratories.create'))
-                        <li class="nav-item start">
-                            <a href="{{route('laboratories.create')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.add_new_laboratory')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
-
-            <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.news')}}</span>
-                    <span class="selected"></span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                   @if(Auth::guard('admin')->user()->can('news.index'))
-                        <li class="nav-item start">
-                            <a href="{{route('news.index')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.news')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                    @if(Auth::guard('admin')->user()->can('news.create'))
-                        <li class="nav-item start">
-                            <a href="{{route('news.create')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.add_new_news')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
 
 
 
-            <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.activity')}}</span>
-                    <span class="selected"></span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('activities.index'))
-                        <li class="nav-item start">
-                            <a href="{{route('activities.index')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.activity')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                    @if(Auth::guard('admin')->user()->can('activities.create'))
-                        <li class="nav-item start">
-                            <a href="{{route('activities.create')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.add_new_activity')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
 
-            <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.supervisor')}}</span>
-                    <span class="selected"></span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('supervisors.index'))
-                        <li class="nav-item start">
-                            <a href="{{route('supervisors.index')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.supervisor')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                    @if(Auth::guard('admin')->user()->can('supervisors.create'))
-                        <li class="nav-item start">
-                            <a href="{{route('supervisors.create')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.add_new_supervisor')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
 
-            <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.admission_role')}}</span>
-                    <span class="selected"></span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('admission-roles.index'))
-                    <li class="nav-item start">
-                        <a href="{{route('admission-roles.index')}}" class="nav-link ">
-                            <i class="icon-bar-chart"></i>
-                            <span class="title">{{trans('admin/partials/navigation.admission_role')}}</span>
-                            <span class="selected"></span>
-                        </a>
-                    </li>
-                    @endif
-                    @if(Auth::guard('admin')->user()->can('admission-roles.create'))
-                        <li class="nav-item start">
-                            <a href="{{route('admission-roles.create')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.add_new_admission_role')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
 
-            <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
-                    <span class="title">{{trans('admin/partials/navigation.education_level')}}</span>
-                    <span class="selected"></span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    @if(Auth::guard('admin')->user()->can('education-levels.index'))
-                        <li class="nav-item start">
-                            <a href="{{route('education-levels.index')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.education_level')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    @endif
 
-                    @if(Auth::guard('admin')->user()->can('education-levels.create'))
-                        <li class="nav-item start">
-                            <a href="{{route('education-levels.create')}}" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">{{trans('admin/partials/navigation.add_new_education_level')}}</span>
-                                <span class="selected"></span>
-                            </a>
-                         </li>
-                    @endif
-                </ul>
-            </li>
+
+
+
+
 
                 <li class="nav-item start">
                     <a href="{{route('contact-us.index')}}" class="nav-link nav-toggle">

@@ -62,8 +62,8 @@
                             <label>{{trans('admin/languages/create.status')}}</label>
                             <select class="form-control input-medium" name="status">
                                 <option disabled> </option>
-                                <option value="0" {{old('status') == 0 ? 'selected' : ''}}>{{trans('admin/languages/create.active')}}</option>
-                                <option value="1" {{old('status') == 1 ? 'selected' : ''}}>{{trans('admin/languages/create.inactive')}}</option>
+                                <option value="1" {{old('status') == 1 ? 'selected' : ''}}>{{trans('admin/languages/create.active')}}</option>
+                                <option value="0" {{old('status') == 0 ? 'selected' : ''}}>{{trans('admin/languages/create.inactive')}}</option>
 
                             </select>
                         </div>

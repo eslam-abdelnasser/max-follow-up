@@ -58,4 +58,6 @@ return [
     'add_new_admission_role' => 'Add New Admission Role',
     'education_level' => 'Education Level',
     'add_new_education_level' => 'Add New Education Level',
+    'who' => 'Who we are ?',
+    'director_words' => 'Director words'
 ];
