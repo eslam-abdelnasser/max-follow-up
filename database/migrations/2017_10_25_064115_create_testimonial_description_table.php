@@ -15,6 +15,12 @@ class CreateTestimonialDescriptionTable extends Migration
     {
         Schema::create('testimonial-description', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name')->nullable();
+            $table->string('title')->nullable();
+            $table->integer('lang_id')->unsigned();
+            $table->integer('why_id')->unsigned();
+            $table->foreign('lang_id')->references('id')->on('languages')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('testimonial_id')->references('id')->on('testimonials')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
