@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTestimonialDescriptionTable extends Migration
+class CreateEducationLevelDescriptionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class CreateTestimonialDescriptionTable extends Migration
      */
     public function up()
     {
-        Schema::create('testimonial-description', function (Blueprint $table) {
+        Schema::create('education-level-description', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
+            $table->string('school_level')->nullable();
             $table->string('title')->nullable();
+            $table->string('slug')->unique();
             $table->text('description')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->integer('education_level_id')->unsigned();
             $table->integer('lang_id')->unsigned();
-            $table->integer('testimonial_id')->unsigned();
             $table->foreign('lang_id')->references('id')->on('languages')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('testimonial_id')->references('id')->on('testimonials')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('education_level_id')->references('id')->on('education-level')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +36,6 @@ class CreateTestimonialDescriptionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('testimonial-description');
+        Schema::dropIfExists('education-level-description');
     }
 }

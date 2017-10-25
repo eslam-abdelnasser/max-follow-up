@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Testimonial extends Model
 {
     //
-    protected  $table =  'testimonial';
+    protected  $table =  'testimonials';
 
     public function description()
     {
-        return $this->hasMany('App\Models\Testimonial','testimonial_id');
+        return $this->hasMany('App\Models\TestimonialDescription','testimonial_id');
     }
 }

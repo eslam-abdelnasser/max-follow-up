@@ -202,6 +202,103 @@
                 </ul>
             </li>
 
+
+            {{-- start testimonial module  --}}
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Testimonial</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    @if(Auth::guard('admin')->user()->can('testimonial.index'))
+                        <li class="nav-item start">
+                            <a href="{{route('testimonial.index')}}" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">{{trans('admin/partials/navigation.blogs')}}</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    @endif
+                    @if(Auth::guard('admin')->user()->can('testimonial.create'))
+                        <li class="nav-item start">
+                            <a href="{{route('testimonial.create')}}" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">{{trans('admin/partials/navigation.create_new_blog')}}</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+
+            {{-- end testimonial module  --}}
+
+            {{-- start Faq module  --}}
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">FAQ</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    @if(Auth::guard('admin')->user()->can('faq.index'))
+                        <li class="nav-item start">
+                            <a href="{{route('faq.index')}}" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">{{trans('admin/partials/navigation.blogs')}}</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    @endif
+                    @if(Auth::guard('admin')->user()->can('faq.create'))
+                        <li class="nav-item start">
+                            <a href="{{route('faq.create')}}" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">{{trans('admin/partials/navigation.create_new_blog')}}</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+
+            {{-- end Faq module  --}}
+
+            {{-- education level --}}
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Education level</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    @if(Auth::guard('admin')->user()->can('education-level.index'))
+                        <li class="nav-item start">
+                            <a href="{{route('education-level.index')}}" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">{{trans('admin/partials/navigation.blogs')}}</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    @endif
+                    @if(Auth::guard('admin')->user()->can('education-level.create'))
+                        <li class="nav-item start">
+                            <a href="{{route('education-level.create')}}" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">{{trans('admin/partials/navigation.create_new_blog')}}</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+
+            {{-- education level --}}
+
          {{-- start why us module --}}
 
             <li class="nav-item start">

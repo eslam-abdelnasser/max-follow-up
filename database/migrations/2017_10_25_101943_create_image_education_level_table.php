@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFaqTable extends Migration
+class CreateImageEducationLevelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateFaqTable extends Migration
      */
     public function up()
     {
-        Schema::create('faq', function (Blueprint $table) {
+        Schema::create('image-education-level', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('status',[0,1]);
+            $table->string('image_url')->nullable();
+            $table->integer('education_level_id')->unsigned();
+            $table->foreign('education_level_id')->references('id')->on('education-level')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateFaqTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq');
+        Schema::dropIfExists('image-education-level');
     }
 }

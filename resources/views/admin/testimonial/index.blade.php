@@ -45,7 +45,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('blogs.create')}}'" class="btn sbold green"> {{trans('admin/blog.add_new')}}
+                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('testimonial.create')}}'" class="btn sbold green"> {{trans('admin/blog.add_new')}}
                                         <i class="fa fa-plus"></i>
                                     </button>
 
@@ -59,7 +59,7 @@
 
                         </div>
                     </div>
-                    {!! Form::open(['route' => ['blogs.destroy.all'] , 'method' => 'delete', 'id'=>'form-delete']) !!}
+                    {!! Form::open(['route' => ['testimonial.destroy.all'] , 'method' => 'delete', 'id'=>'form-delete']) !!}
                     <input type="hidden"  value="" name="items" id="items"/>
                     {!! Form::close() !!}
                     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
@@ -74,7 +74,6 @@
                             <th>#</th>
                             <th class="text-center"> {{trans('admin/blog.blog_title')}} </th>
                             <th class="text-center"> {{trans('admin/blog.auther_name')}} </th>
-                            <th class="text-center"> {{trans('admin/services.show_on_home_page')}} </th>
                             <th class="text-center"> {{trans('admin/services.status')}} </th>
 
                             <th class="text-center"> {{trans('admin/services.action')}} </th>
@@ -82,40 +81,37 @@
                         </thead>
                         <tbody>
 
-                        @foreach($blogs as $blog)
+                        @foreach($testimonials as $testimonial)
                             <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" name="checkbox[]" class="checkboxes sub_chk" value="{{$blog->id}}" data-id="{{$blog->id}}" />
+                                        <input type="checkbox" name="checkbox[]" class="checkboxes sub_chk" value="{{$testimonial->id}}" data-id="{{$testimonial->id}}" />
                                         <span></span>
                                     </label>
                                 </td>
                                 <td>{{$loop->iteration}}</td>
                                 <td class="text-center">
-                                    @foreach($blog->description as $description)
+                                    @foreach($testimonial->description as $description)
 
                                         <div><a href="#"> {{$description->title}} </a></div>
 
                                     @endforeach
                                 </td>
                                 <td class="text-center">
-                                    @foreach($blog->description as $description)
+                                    @foreach($testimonial->description as $description)
 
-                                        <div><a href="#"> {{$description->auther_name}} </a></div>
+                                        <div><a href="#"> {{$description->name}} </a></div>
 
                                     @endforeach
                                 </td>
-                                <td class="text-center vcenter">
-                                    <span class="label label-sm label-{{$blog->home_page_status == 0 ? 'danger' : 'success'}}"> {{$blog->home_page_status == 0 ? 'inactive' : 'active'}} </span>
 
-                                </td>
                                 <td class="text-center">
-                                    <span class="label label-sm label-{{$blog->status == 0 ? 'danger' : 'success'}}"> {{$blog->status == 0 ? 'inactive' : 'active'}} </span>
+                                    <span class="label label-sm label-{{$testimonial->status == 0 ? 'danger' : 'success'}}"> {{$testimonial->status == 0 ? 'inactive' : 'active'}} </span>
                                 </td>
                                 <td class="text-center vcenter">
-                                    <a href="{{route('blogs.edit',$blog->id)}}" title="{{trans('admin/services.edit')}}"><i class="fa fa-edit"></i></a>
-                                    {!! Form::open(['route' => ['blogs.destroy',$blog->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$blog->id]) !!}
-                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$blog->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('testimonial.edit',$testimonial->id)}}" title="{{trans('admin/services.edit')}}"><i class="fa fa-edit"></i></a>
+                                    {!! Form::open(['route' => ['testimonial.destroy',$testimonial->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$testimonial->id]) !!}
+                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$testimonial->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
                                     {!! Form::close() !!}
                                 </td>
 

@@ -59,11 +59,15 @@ Route::group([
 
 
 
-
+    //education level
+    Route::resource('/education-level','Admin\EducationLevelController');
+    Route::delete('/education-level','Admin\EducationLevelController@destroyAll')->name('education-level.destroy.all');
     // testimonial
     Route::resource('/testimonial','Admin\TestimonialController');
+    Route::delete('/testimonial','Admin\TestimonialController@destroyAll')->name('testimonial.destroy.all');
     // faq
     Route::resource('/faq','Admin\FaqController');
+    Route::delete('/faq','Admin\FaqController@destroyAll')->name('faq.destroy.all');
     //admin structure
     Route::resource('/admin-structure','Admin\AdminStructureController');
     Route::delete('/admin-structure','Admin\AdminStructureController@destroyAll')->name('admin-structure.destroy.all');

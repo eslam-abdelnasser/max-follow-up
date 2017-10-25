@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FaqDescription extends Model
+class EducationLevelDescription extends Model
 {
     //
-    protected  $table = 'faq-description';
+    protected $table = 'education-level-description';
 
     public function language()
     {

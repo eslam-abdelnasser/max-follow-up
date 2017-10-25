@@ -48,22 +48,15 @@
                             </ul>
                         </div>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                            {{Form::open(['route' => ['blogs.update',$blog->id] , 'method' => 'put','files'=>true]) }}
+                            {{Form::open(['route' => ['faq.update',$faq->id] , 'method' => 'put','files'=>true]) }}
                             <div class="tab-content">
-                                @foreach($blog->description as $description)
+                                @foreach($faq->description as $description)
 
                                     <div class="tab-pane {{$loop->iteration == 1 ? 'active' : ''}}" id="{{$description->language->name}}">
                                         <div class="portlet-body form">
 
                                             <div class="form-body">
-                                                <div class="form-group">
-                                                    <label>  {{trans('admin/blog.auther_name')}} {{trans('admin/services.'.$description->language->name )}}</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-align-justify"></i>
-                                                        </span>
-                                                        <input type="text" name="auther_name_{{$description->language->label}}" value="{{$description->auther_name}}" id="auther_name_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/blog.auther_name')}}"> </div>
-                                                </div>
+
                                                 <div class="form-group">
                                                     <label> {{trans('admin/services.title')}} {{trans('admin/services.'.$description->language->name )}} </label>
                                                     <div class="input-group">
@@ -72,14 +65,7 @@
                                                         </span>
                                                         <input type="text" name="title_{{$description->language->label}}" value="{{$description->title}}" id="title_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.title')}}"> </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label> {{trans('admin/services.slug')}} {{trans('admin/services.'.$description->language->name )}} </label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-align-justify"></i>
-                                                        </span>
-                                                        <input type="text" name="slug_{{$description->language->label}}" value="{{$description->slug}}" id="slug_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.slug')}}"> </div>
-                                                </div>
+
                                                 <div class="form-group">
                                                     <label> {{trans('admin/services.description')}} {{trans('admin/services.'.$description->language->name )}} </label>
                                                     <div class="input-group">
@@ -90,24 +76,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label> {{trans('admin/services.meta_title')}} {{trans('admin/services.'.$description->language->name )}} </label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-align-justify"></i>
-                                                        </span>
-                                                        <input type="text" name="meta_title_{{$description->language->label}}" value="{{$description->meta_title}}" id="meta_title_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.meta_title')}}"> </div>
-                                                </div>
 
-                                                <div class="form-group">
-                                                    <label> {{trans('admin/services.meta_description')}} {{trans('admin/services.'.$description->language->name )}}</label>
 
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-align-justify"></i>
-                                                        </span>
-                                                        <input type="text" name="meta_description_{{$description->language->label}}" value="{{$description->meta_description}}" id="meta_description_{{$description->language->label}}" class="form-control input-circle-right" placeholder="Meta description"> </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -116,45 +87,19 @@
                             </div>
 
                             <div class="portlet light ">
-                                <div class="form-group">
-                                    <label>{{trans('admin/services.service_home_page_status')}}</label>
-                                    <div class="input-group margin-top-10">
-                                        <select class="form-control input-medium" name="homepage_status">
 
-                                            <option value="1" {{$blog->home_page_status == 1 ? 'selected' : ''}} >{{trans('admin/services.display')}}</option>
-                                            <option value="0" {{$blog->home_page_status == 0 ? 'selected' : ''}}>{{trans('admin/services.not_display')}}</option>
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <label>Blog Status</label>
                                     <div class="input-group margin-top-10">
                                         <select class="form-control input-medium" name="status">
 
-                                            <option value="1" {{$blog->status == 1 ? 'selected' : ''}} >{{trans('admin/services.enable')}}</option>
-                                            <option value="0" {{$blog->status == 0 ? 'selected' : ''}} >{{trans('admin/services.disable')}}</option>
+                                            <option value="1" {{$faq->status == 1 ? 'selected' : ''}} >{{trans('admin/services.enable')}}</option>
+                                            <option value="0" {{$faq->status == 0 ? 'selected' : ''}} >{{trans('admin/services.disable')}}</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">{{trans('admin/services.upload_image')}}</label>
-                                    <div class="col-md-9">
-                                        <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                <img src="{{asset('uploads/blogs/'.$blog->image_url)}}" alt="" /> </div>
-                                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
-                                            <div>
-                                                                <span class="btn default btn-file">
-                                                                    <span class="fileinput-new"> {{trans('admin/services.select_image')}} </span>
-                                                                    <span class="fileinput-exists"> {{trans('admin/services.change')}} </span>
-                                                                    <input type="file" name="image_url"> </span>
-                                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> {{trans('admin/services.remove')}} </a>
-                                            </div>
-                                        </div>
 
-                                    </div>
-                                </div>
 
                             </div>
                             <div class="form-actions">
@@ -174,19 +119,6 @@
 @endsection
 
 
-{{-- Start javascript --}}
-@section('js')
-    <script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript"></script>
 
-    <script>
-        @foreach($languages as $language)
-          $("#title_{{$language->label}}").on('change', function (e) {
-
-            $("#slug_{{$language->label}}").val($("#title_{{$language->label}}").val());
-        });
-
-        @endforeach
-    </script>
-@endsection
 
 {{-- end javascript --}}
