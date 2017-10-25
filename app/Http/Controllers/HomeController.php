@@ -29,18 +29,18 @@ class HomeController extends Controller
     public function index()
     {
 
-        $sliders = Slider::where('status','1')->latest()->get()->take(3);
-        $data = [];
-        foreach ($sliders as $slider){
-            $data[] = $slider ;
-        }
-//        dd($data);
-        $blog    = Blog::where(['status'=>'1','home_page_status'=>'1'])->get();
-        $gallery = Gallery::where('status','=','1')->get();
-        $sevices = Service::where(['status'=>'1','home_page_status'=>'1'])->get()->take(6);
-        $teachers = Teacher::where('status','=','1')->get() ;
+//        $sliders = Slider::where('status','1')->latest()->get()->take(3);
+//        $data = [];
+//        foreach ($sliders as $slider){
+//            $data[] = $slider ;
+//        }
+////        dd($data);
+//        $blog    = Blog::where(['status'=>'1','home_page_status'=>'1'])->get();
+//        $gallery = Gallery::where('status','=','1')->get();
+//        $sevices = Service::where(['status'=>'1','home_page_status'=>'1'])->get()->take(6);
+//        $teachers = Teacher::where('status','=','1')->get() ;
 
-        return view('front.index')->withBlog($blog)->withGalleries($gallery)->withServices($sevices)->with('teachers',$teachers)->withSlider($data);
+        return view('front.index');
 
 
     }

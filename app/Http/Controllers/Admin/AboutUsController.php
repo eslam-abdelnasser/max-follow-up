@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Language ;
 use App\Models\AboutUs ;
 use App\Models\AboutUsDescription ;
+
+use Image ;
 class AboutUsController extends Controller
 {
     //
@@ -37,6 +39,8 @@ class AboutUsController extends Controller
 
         }
 
+//        dd($about);
+
         return view('admin.about.index' , ['about'=>$about , 'languages'=>$languages] ) ;
 
 
@@ -60,8 +64,19 @@ class AboutUsController extends Controller
         $about = AboutUs::find($id);
 
 
+        if($request->hasFile('image_url')){
+            //upload image to server directory to service
+            $dir = public_path().'/uploads/about-us/';
+            $file = $request->file('image_url') ;
+            $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
+            $file->move($dir , $fileName);
+            // resize image using intervention
+            Image::make($dir . $fileName)->resize(575, 681)->save($dir.$fileName);
+            $about->image_url = $fileName ;
+        }
 
 
+        $about->save() ;
         foreach($about->description as $value){
 
 

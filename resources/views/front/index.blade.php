@@ -3,753 +3,706 @@
 @section('title',trans('front.home'))
 
 
-@if(LaravelLocalization::getCurrentLocale() == 'ar')
-    @php
-        $direction = '-rtl';
-    @endphp
-@else
-    @php
-        $direction = '';
-    @endphp
 
-@endif
-@section('css')
-    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/pages/css/portfolio'.$direction.'.min.css')}}" rel="stylesheet" type="text/css" />
-@endsection
 @section('content')
 
-    {{-- Start slider--}}
-    <section id="home" class="divider">
-        <div class="container-fluid p-0">
+    <!-- Banner Slider -->
+    <div id="banner-slider" class="banner-slider curve-up"> <img class="sp-image" src="{{asset('front/assets/images/slider/bg.jpg')}}" alt="">
+        <!-- Slides -->
+        <div class="sp-slides">
+            <!-- Slide 1 -->
+            <div class="sp-slide">
+                <!-- Caption -->
 
-            <!-- Slider Revolution Start -->
-            <div class="rev_slider_wrapper">
-                <div class="rev_slider" data-version="5.0">
+                <!-- Caption -->
+                <!-- Banner Layers <img class="sp-layer layer-img-1" data-horizontal="750" data-vertical="-5" data-show-transition="right" data-hide-transition="up" data-show-delay="400" data-hide-delay="200" src="assets/images/slider/slider-layer-1.png" alt=""> -->
+
+                <img class=" layer-img-2" style="width:100%" data-horizontal="670" data-vertical="50" data-show-transition="up" data-hide-transition="up" data-show-delay="800" data-hide-delay="500" src="{{asset('front/assets/images/header2.jpg')}}" alt="">
+                <!-- Banner Layers -->
+            </div>
+            <!-- Slide 1 -->
+            <!-- Slide 1 -->
+            <div class="sp-slide">
+                <!-- Caption -->
+
+                <!-- Caption -->
+                <!-- Banner Layers <img class="sp-layer layer-img-1" data-horizontal="750" data-vertical="-5" data-show-transition="right" data-hide-transition="up" data-show-delay="400" data-hide-delay="200" src="assets/images/slider/slider-layer-1.png" alt="">-->
+
+                <img class=" layer-img-2" style="width:100%" data-horizontal="670" data-vertical="50" data-show-transition="up" data-hide-transition="up" data-show-delay="800" data-hide-delay="500" src="{{asset('front/assets/images/header2.jpg')}}" alt="">
+                <!-- Banner Layers -->
+            </div>
+            <!-- Slide 1 -->
+            <!-- Slide 1 -->
+            <div class="sp-slide">
+                <!-- Caption -->
+
+                <!-- Caption -->
+                <!-- Banner Layers <img class="sp-layer layer-img-1" data-horizontal="750" data-vertical="-5" data-show-transition="right" data-hide-transition="up" data-show-delay="400" data-hide-delay="200" src="assets/images/slider/slider-layer-1.png" alt=""> -->
+
+                <img class="layer-img-2" style="width:100%" data-horizontal="670" data-vertical="50" data-show-transition="up" data-hide-transition="up" data-show-delay="800" data-hide-delay="500" src="{{asset('front/assets/images/header2.jpg')}}" alt="">
+                <!-- Banner Layers -->
+            </div>
+            <!-- Slide 1 -->
+        </div>
+        <!-- Slides -->
+        <!-- Paginaition dots -->
+        <ul class="sp-thumbnails">
+            <li class="sp-thumbnail"></li>
+            <li class="sp-thumbnail"></li>
+            <li class="sp-thumbnail"></li>
+        </ul>
+        <!-- Paginaition dots -->
+    </div>
+    <!-- Banner Slider -->
+    <!-- Main -->
+    <main id="main">
+        <!-- Services -->
+        <section class="services-holder">
+            <div class="container">
+                <div class="p-relative has-layout">
+                    <!-- Alert -->
+                    <div class="alert-1">
+                        <p><i class="icon-star-full"></i>Welcome to KG daycare, preschool, and kindergarten How to Enroll Your Child to a Class?</p> <a class="tc-btn" href="#">Subscribe</a> </div>
+                    <!-- Alert -->
+                    <!-- Services Columns -->
+                    <div class="services-columns white-bg">
+                        <div id="services-slider" class="services-slider">
+                            <!-- Service Figure -->
+                            <div class="item">
+                                <figure class="services-figure bg-1">
+                                    <figcaption> <span>Basic Education</span>
+                                        <h2>Educational Subjects</h2> <a class="tc-btn light shadow-0 sm" href="#">View</a> </figcaption> <img class="service-img" src="assets/images/services/img-01.png" alt=""> </figure>
+                            </div>
+                            <!-- Service Figure -->
+                            <!-- Service Figure -->
+                            <div class="item">
+                                <figure class="services-figure bg-2">
+                                    <figcaption> <span>Technology</span>
+                                        <h2>Electronic System</h2> <a class="tc-btn light shadow-0 sm" href="#">View</a> </figcaption> <img class="service-img" src="assets/images/services/img-02.png" alt=""> </figure>
+                            </div>
+                            <!-- Service Figure -->
+                            <!-- Service Figure -->
+                            <div class="item">
+                                <figure class="services-figure bg-3">
+                                    <figcaption> <span>Academic</span>
+                                        <h2>Academic Calendar</h2> <a class="tc-btn light shadow-0 sm" href="#">View</a> </figcaption> <img class="service-img" src="assets/images/services/img-03.png" alt=""> </figure>
+                            </div>
+                            <!-- Service Figure -->
+                        </div>
+                    </div>
+                    <!-- Services Columns -->
+                </div>
+            </div>
+        </section>
+        <!-- Services -->
+        <!-- Timeline
+        <section class="timeline tc-padding-bottom">
+            <div class="container">
+                <div id="timeline-slider" class="timeline-slider">
+                    <div class="timeline-figure"> <img src="assets/images/slime-icon.png" alt=""> <span>November, 2005</span>
+                        <h4>Kindergarten Opening</h4> </div>
+                    <div class="timeline-figure"> <img src="assets/images/slime-icon.png" alt=""> <span>December 23, 2005</span>
+                        <h4>1st Kid Enrolled</h4> </div>
+                    <div class="timeline-figure"> <img src="assets/images/slime-icon.png" alt=""> <span>January, 2006</span>
+                        <h4>Daycare Center Launched</h4> </div>
+                    <div class="timeline-figure"> <img src="assets/images/slime-icon.png" alt=""> <span>January 2008</span>
+                        <h4>Preschool Launched</h4> </div>
+                </div>
+            </div>
+        </section>
+        <!-- Timeline -->
+        <!-- School -->
+        <section class="school-area curve-down" style="margin-top: 60px;"> <span class="scho-service-icon style-2"><img src="assets/images/school-services/img-1-1.png" alt=""></span>
+            <!-- Main Heading -->
+            <div class="school-area-heading">
+                <h3>We are KG Child Care We have been educating children for over fifteen years.<br> Our goal is to create a place that engages each child.</h3>
+                <p>Welcome to KG daycare, preschool, and kindergarten How to Enroll Your Child to a Class?</p>
+            </div>
+            <!-- Main Heading -->
+            <!-- School Services -->
+            <div style="background: url(assets/images/parallax-1.png) 50% 0% no-repeat;">
+                <div class="container">
+                    <div class="services-shadow radius-8 overflow-hidden">
+                        <div class="row no-gutters">
+                            <!-- School Services Figure -->
+                            <div class="col-sm-4 col-xs-6 r-full-width">
+                                <div class="scho-services-figure border-l-0"> <span class="scho-service-icon bg-1"><img src="assets/images/school-services/img-01.png" alt=""></span>
+                                    <h4><a href="#">Learn With Best Teachers</a></h4>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque lada tum, totam rem aperiam lada tum.</p>
+                                </div>
+                            </div>
+                            <!-- School Services Figure -->
+                            <!-- School Services Figure -->
+                            <div class="col-sm-4 col-xs-6 r-full-width">
+                                <div class="scho-services-figure"> <span class="scho-service-icon bg-2"><img src="assets/images/school-services/img-02.png" alt=""></span>
+                                    <h4><a href="#">Happy Social Group</a></h4>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque lada tum, totam rem aperiam lada tum.</p>
+                                </div>
+                            </div>
+                            <!-- School Services Figure -->
+                            <!-- School Services Figure -->
+                            <div class="col-sm-4 col-xs-6 r-full-width">
+                                <div class="scho-services-figure"> <span class="scho-service-icon bg-3"><img src="assets/images/school-services/img-03.png" alt=""></span>
+                                    <h4><a href="#">We Love Math &amp; Drawing</a></h4>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque lada tum, totam rem aperiam lada tum.</p>
+                                </div>
+                            </div>
+                            <!-- School Services Figure -->
+                            <!-- School Services Figure -->
+                            <div class="col-sm-4 col-xs-6 r-full-width">
+                                <div class="scho-services-figure border-l-0 border-b-0"> <span class="scho-service-icon bg-4"><img src="assets/images/school-services/img-04.png" alt=""></span>
+                                    <h4><a href="#">Learn With Best Teachers</a></h4>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque lada tum, totam rem aperiam lada tum.</p>
+                                </div>
+                            </div>
+                            <!-- School Services Figure -->
+                            <!-- School Services Figure -->
+                            <div class="col-sm-4 col-xs-6 r-full-width">
+                                <div class="scho-services-figure border-b-0"> <span class="scho-service-icon bg-5"><img src="assets/images/school-services/img-05.png" alt=""></span>
+                                    <h4><a href="#">Happy Social Group</a></h4>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque lada tum, totam rem aperiam lada tum.</p>
+                                </div>
+                            </div>
+                            <!-- School Services Figure -->
+                            <!-- School Services Figure -->
+                            <div class="col-sm-4 col-xs-6 r-full-width">
+                                <div class="scho-services-figure border-b-0"> <span class="scho-service-icon bg-6"><img src="assets/images/school-services/img-06.png" alt=""></span>
+                                    <h4><a href="#">We Love Math &amp; Drawing</a></h4>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque lada tum, totam rem aperiam lada tum.</p>
+                                </div>
+                            </div>
+                            <!-- School Services Figure -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- School Services -->
+            <!-- Nersery Statistics -->
+            <div class="container">
+                <div class="statistics">
+                    <h3 class="curve-heading">Nersery Statistics</h3>
+                    <div id="tc-counters" class="facts-lsit tc-padding-bottom has-layout">
+                        <ul>
+                            <li>
+                                <h2 class="timer color-1" data-to="156" data-speed="3000">156</h2> <strong class="">Number of students</strong> </li>
+                            <li>
+                                <h2 class="timer color-2" data-to="24" data-speed="3000">24</h2>
+                                <strong class="">Number of teachers</strong>
+                            </li>
+                            <li>
+                                <h2 class="timer color-3" data-to="150" data-speed="3000">150</h2> <strong class="">Number of Classes</strong> </li>
+                            <li> <span></span>
+                                <h2 class="timer color-4" data-to="19" data-speed="3000">19</h2> <strong class="">Number of educational activities</strong> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Nersery Statistics -->
+            <!-- Kids Img -->
+            <div class="container">
+                <div class="kids-img has-layout">
                     <ul>
-                    @if(isset($slider[0]))
-                        @foreach($slider[0]->description as $singleSlider )
-                            @if($singleSlider->language->label == LaravelLocalization::getCurrentLocale())
-                                <!-- LAYER NR. 1 -->
-                                    <!-- SLIDE 1 -->
-                                    <li data-index="rs-1" data-transition="random" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="1000"  data-thumb="http://placehold.it/1920x743"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-description="">
-                                        <!-- MAIN IMAGE -->
-                                        <img src="{{asset('uploads/slider/1920x743/'.$slider[0]->slider_image)}}"  alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="6" data-no-retina>
-                                        <!-- LAYERS -->
-
-                                        <div class="tp-caption tp-resizeme text-uppercase text-white bg-dark-transparent-5 pl-30 pr-30"
-                                             id="rs-1-layer-1"
-
-                                             data-x="['center']"
-                                             data-hoffset="['0']"
-                                             data-y="['middle']"
-                                             data-voffset="['-90']"
-                                             data-fontsize="['28']"
-                                             data-lineheight="['54']"
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;s:500"
-                                             data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                                             data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1000"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 7; white-space: nowrap; font-weight:600; border-radius:45px;">{{$singleSlider->title_first}}
-                                        </div>
-
-                                        <!-- LAYER NR. 2 -->
-                                        <div class="tp-caption tp-resizeme text-uppercase text-white bg-theme-colored-transparent pl-40 pr-40"
-                                             id="rs-1-layer-2"
-
-                                             data-x="['center']"
-                                             data-hoffset="['0']"
-                                             data-y="['middle']"
-                                             data-voffset="['-20']"
-                                             data-fontsize="['48']"
-                                             data-lineheight="['70']"
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;s:500"
-                                             data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                                             data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1000"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 7; white-space: nowrap; font-weight:600; border-radius:45px;">{{$singleSlider->title_second}}
-                                        </div>
-
-                                        <!-- LAYER NR. 3 -->
-                                        <div class="tp-caption tp-resizeme text-center text-black"
-                                             id="rs-1-layer-3"
-
-                                             data-x="['center']"
-                                             data-hoffset="['0']"
-                                             data-y="['middle']"
-                                             data-voffset="['50','60','70']"
-                                             data-fontsize="['16','18','24']"
-                                             data-lineheight="['28']"
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;s:500"
-                                             data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                                             data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1400"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;">{!! $singleSlider->description !!}
-                                        </div>
-
-                                        <!-- LAYER NR. 4 -->
-                                        <div class="tp-caption tp-resizeme"
-                                             id="rs-1-layer-4"
-
-                                             data-x="['center']"
-                                             data-hoffset="['0']"
-                                             data-y="['middle']"
-                                             data-voffset="['135','145','155']"
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;"
-                                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1400"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 5; white-space: nowrap; letter-spacing:1px;"><a class="btn btn-colored btn-lg btn-theme-colored pl-20 pr-20" href="{{$slider[0]->slider_url}}">View Details</a>
-                                        </div>
-                                    </li>
-                            @endif
-                        @endforeach
-                    @endif
-
-                    @if(isset($slider[1]))
-                        @foreach($slider[1]->description as $singleSlider )
-                            @if($singleSlider->language->label == LaravelLocalization::getCurrentLocale())
-                                <!-- SLIDE 2 -->
-                                    <li data-index="rs-2" data-transition="random" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="1000"  data-thumb="http://placehold.it/1920x743"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-description="">
-                                        <!-- MAIN IMAGE -->
-                                        <img src="http://placehold.it/1920x743"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="6" data-no-retina>
-                                        <!-- LAYERS -->
-
-                                        <!-- LAYER NR. 1 -->
-                                        <div class="tp-caption tp-resizeme text-uppercase text-white bg-dark-transparent-5 pl-15 pr-15"
-                                             id="rs-2-layer-1"
-
-                                             data-x="['left']"
-                                             data-hoffset="['30']"
-                                             data-y="['middle']"
-                                             data-voffset="['-110']"
-                                             data-fontsize="['30']"
-                                             data-lineheight="['50']"
-
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;s:500"
-                                             data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                                             data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1000"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 7; white-space: nowrap; font-weight:600;">{{$singleSlider->title_first}}
-                                        </div>
-
-                                        <!-- LAYER NR. 2 -->
-                                        <div class="tp-caption tp-resizeme text-uppercase text-white bg-theme-colored-transparent pl-15 pr-15"
-                                             id="rs-2-layer-2"
-
-                                             data-x="['left']"
-                                             data-hoffset="['30']"
-                                             data-y="['middle']"
-                                             data-voffset="['-45']"
-                                             data-fontsize="['48']"
-                                             data-lineheight="['70']"
-
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;s:500"
-                                             data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                                             data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1000"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 7; white-space: nowrap; font-weight:600;">{{$singleSlider->title_second}}
-                                        </div>
-
-                                        <!-- LAYER NR. 3 -->
-                                        <div class="tp-caption tp-resizeme text-black"
-                                             id="rs-2-layer-3"
-
-                                             data-x="['left']"
-                                             data-hoffset="['35']"
-                                             data-y="['middle']"
-                                             data-voffset="['35','45','55']"
-                                             data-fontsize="['16','18','24']"
-                                             data-lineheight="['28']"
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;s:500"
-                                             data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                                             data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1400"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;">{{$singleSlider->description}}
-                                        </div>
-
-                                        <!-- LAYER NR. 4 -->
-                                        <div class="tp-caption tp-resizeme"
-                                             id="rs-2-layer-4"
-
-                                             data-x="['left']"
-                                             data-hoffset="['35']"
-                                             data-y="['middle']"
-                                             data-voffset="['110','120','140']"
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;"
-                                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1400"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 5; white-space: nowrap; letter-spacing:1px;"><a class="btn btn-colored btn-lg btn-theme-colored pl-20 pr-20" href="{{$slider[1]->slider_url}}">View Details</a>
-                                        </div>
-                                    </li>
-                            @endif
-                        @endforeach
-                    @endif
-
-                    @if(isset($slider[2]))
-                        @foreach($slider[2]->description as $singleSlider )
-                            @if($singleSlider->language->label == LaravelLocalization::getCurrentLocale())
-                                <!-- SLIDE 3 -->
-                                    <li data-index="rs-3" data-transition="random" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="1000"  data-thumb="http://placehold.it/1920x743"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-description="">
-                                        <!-- MAIN IMAGE -->
-                                        <img src="http://placehold.it/1920x743"  alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="6" data-no-retina>
-                                        <!-- LAYERS -->
-
-                                        <!-- LAYER NR. 1 -->
-                                        <div class="tp-caption tp-resizeme text-uppercase text-white bg-dark-transparent-5 pl-15 pr-15"
-                                             id="rs-3-layer-1"
-
-                                             data-x="['right']"
-                                             data-hoffset="['30']"
-                                             data-y="['middle']"
-                                             data-voffset="['-110']"
-                                             data-fontsize="['30']"
-                                             data-lineheight="['50']"
-
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;s:500"
-                                             data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                                             data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1000"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 7; white-space: nowrap; font-weight:600;">{{$singleSlider->title_first}}
-                                        </div>
-
-                                        <!-- LAYER NR. 2 -->
-                                        <div class="tp-caption tp-resizeme text-uppercase text-white bg-theme-colored-transparent pl-15 pr-15"
-                                             id="rs-3-layer-2"
-
-                                             data-x="['right']"
-                                             data-hoffset="['30']"
-                                             data-y="['middle']"
-                                             data-voffset="['-45']"
-                                             data-fontsize="['48']"
-                                             data-lineheight="['70']"
-
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;s:500"
-                                             data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                                             data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1000"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 7; white-space: nowrap; font-weight:600;">{{$singleSlider->title_second}}
-                                        </div>
-
-                                        <!-- LAYER NR. 3 -->
-                                        <div class="tp-caption tp-resizeme text-right text-black"
-                                             id="rs-3-layer-3"
-
-                                             data-x="['right']"
-                                             data-hoffset="['35']"
-                                             data-y="['middle']"
-                                             data-voffset="['30','40','50']"
-                                             data-fontsize="['16','18','24']"
-                                             data-lineheight="['28']"
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;s:500"
-                                             data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                                             data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                                             data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1400"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;">{{$singleSlider->description}}
-                                        </div>
-
-                                        <!-- LAYER NR. 4 -->
-                                        <div class="tp-caption tp-resizeme"
-                                             id="rs-3-layer-4"
-
-                                             data-x="['right']"
-                                             data-hoffset="['35']"
-                                             data-y="['middle']"
-                                             data-voffset="['110','120','140']"
-                                             data-width="none"
-                                             data-height="none"
-                                             data-whitespace="nowrap"
-                                             data-transform_idle="o:1;"
-                                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                                             data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                                             data-start="1400"
-                                             data-splitin="none"
-                                             data-splitout="none"
-                                             data-responsive_offset="on"
-                                             style="z-index: 5; white-space: nowrap; letter-spacing:1px;"><a class="btn btn-colored btn-lg btn-theme-colored pl-20 pr-20" href="{{$slider[2]->slider_url}}">View Details</a>
-                                        </div>
-
-
-                                    </li>
-                                @endif
-                            @endforeach
-                        @endif
+                        <li class="animate swing" data-wow-delay="0.2s"><img src="assets/images/kids-imgs/img-01.png" alt=""></li>
+                        <li class="animate lightSpeedIn" data-wow-delay="0.4s"><img src="assets/images/kids-imgs/img-02.png" alt=""></li>
+                        <li class="animate swing" data-wow-delay="0.6s"><img src="assets/images/kids-imgs/img-03.png" alt=""></li>
+                        <li class="animate lightSpeedIn" data-wow-delay="0.8s"><img src="assets/images/kids-imgs/img-04.png" alt=""></li>
+                        <li class="animate fadeInRight" data-wow-delay="1s"><img src="assets/images/kids-imgs/img-05.png" alt=""></li>
                     </ul>
-                </div><!-- end .rev_slider -->
-            </div>
-            <!-- end .rev_slider_wrapper -->
-            <script>
-                $(document).ready(function(e) {
-                    var revapi = $(".rev_slider").revolution({
-                        sliderType:"standard",
-                        sliderLayout: "auto",
-                        dottedOverlay: "none",
-                        delay: 5000,
-                        navigation: {
-                            keyboardNavigation: "off",
-                            keyboard_direction: "horizontal",
-                            mouseScrollNavigation: "off",
-                            onHoverStop: "off",
-                            touch: {
-                                touchenabled: "on",
-                                swipe_threshold: 75,
-                                swipe_min_touches: 1,
-                                swipe_direction: "horizontal",
-                                drag_block_vertical: false
-                            },
-                            arrows: {
-                                style: "zeus",
-                                enable: true,
-                                hide_onmobile: true,
-                                hide_under:600,
-                                hide_onleave: true,
-                                hide_delay: 200,
-                                hide_delay_mobile: 1200,
-                                tmp:'<div class="tp-title-wrap">    <div class="tp-arr-imgholder"></div> </div>',
-                                left: {
-                                    h_align: "left",
-                                    v_align: "center",
-                                    h_offset: 30,
-                                    v_offset: 0
-                                },
-                                right: {
-                                    h_align: "right",
-                                    v_align: "center",
-                                    h_offset: 30,
-                                    v_offset: 0
-                                }
-                            },
-                            bullets: {
-                                enable: true,
-                                hide_onmobile: true,
-                                hide_under: 600,
-                                style: "hebe",
-                                hide_onleave: false,
-                                direction: "horizontal",
-                                h_align: "center",
-                                v_align: "bottom",
-                                h_offset: 0,
-                                v_offset: 30,
-                                space: 5,
-                                tmp: '<span class="tp-bullet-image"></span><span class="tp-bullet-imageoverlay"></span><span class="tp-bullet-title"></span>'
-                            }
-                        },
-                        responsiveLevels: [1240, 1024, 778],
-                        visibilityLevels: [1240, 1024, 778],
-                        gridwidth: [1170, 1024, 778, 480],
-                        gridheight: [680, 500, 400, 400],
-                        lazyType: "none",
-                        parallax: {
-                            origo: "slidercenter",
-                            speed: 1000,
-                            levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 100, 55],
-                            type: "scroll"
-                        },
-                        shadow: 0,
-                        spinner: "off",
-                        stopLoop: "on",
-                        stopAfterLoops: 0,
-                        stopAtSlide: -1,
-                        shuffle: "off",
-                        autoHeight: "off",
-                        fullScreenAutoWidth: "off",
-                        fullScreenAlignForce: "off",
-                        fullScreenOffsetContainer: "",
-                        fullScreenOffset: "0",
-                        hideThumbsOnMobile: "off",
-                        hideSliderAtLimit: 0,
-                        hideCaptionAtLimit: 0,
-                        hideAllCaptionAtLilmit: 0,
-                        debugMode: false,
-                        fallbacks: {
-                            simplifyAll: "off",
-                            nextSlideOnWindowFocus: "off",
-                            disableFocusListener: false,
-                        }
-                    });
-                });
-            </script>
-            <!-- Slider Revolution Ends -->
-
-        </div>
-    </section>
-    {{-- end slider--}}
-
-    <section class="bg-theme-colored">
-        <div class="container pt-0 pb-20">
-            <div class="row">
-                <div class="call-to-action pt-20 pb-20">
-                    <div class="col-xs-12 col-sm-6 col-md-4 mb-sm-30">
-                        <i class="fa fa-certificate text-white font-36 pull-left flip mt-15 mr-20"></i>
-                        <h4 class="font-16 font-weight-600 text-white">Worldclass Service Provider</h4>
-                        <h6 class="text-white">Your Trust is our achievement</h6>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 mb-sm-30">
-                        <i class="fa fa-map-marker text-white font-36 pull-left flip mt-15 mr-20"></i>
-                        <h4 class="font-16 font-weight-600 text-white">You can Find Us Our Location</h4>
-                        <h6 class="text-white">121 king street west toronto</h6>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <i class="fa fa-phone text-white font-36 pull-left flip mt-15 mr-20"></i>
-                        <h4 class="font-16 font-weight-600 text-white">Contact Us : +262 695 2601</h4>
-                        <h6 class="text-white">You Can Contact Us Anytime</h6>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-
-
-    {{-- start about us--}}
-
-    <!-- Section: About -->
-    <section>
-        <div class="container">
-            <div class="section-content">
-
+            <!-- Kids Img -->
+        </section>
+        <!-- School -->
+        <!-- About Nersery -->
+        <section class="tc-padding">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-12 text-center">
-                        @foreach($about_us->description  as $description)
-                            @if($description->language->label == LaravelLocalization::getCurrentLocale())
-                                <h2 class="title font-42 text-theme-colored mt-30 mb-20">{{$description->title}}</h2>
-                                {!! str_limit(html_entity_decode($description->description),200) !!}
-                                <a class="btn btn-colored btn-theme-colored btn-lg text-uppercase font-13 mt-30" href="{{route('about-us')}}">{{trans('front.read_more')}}</a>
-                            @endif
-                        @endforeach
+                    <!-- About Img -->
+                    <div class="about-img"> <img src="assets/images/about-img-1.png" alt=""> </div>
+                    <!-- About Img -->
+                    <!-- About Text -->
+                    <div class="col-lg-6 col-md-7 pull-right">
+                        <div class="about-text">
+                            <h3 class="curve-heading">Word of the principal</h3>
+                            <h4>Steadfast vulgarly alas showed until caterpillar tiger did stopped alas visually aardvark dove dear this joyful egret inconsiderate crud.</h4>
+                            <p>Until on ouch neat vindictively steadfast vulgarly alas showed until caterpillar tiger did stopped alas visually aardvark dove dear this joyful egret inconsiderate crud. Creepy one much mallard natural crucially dog tranquil meadowlark yikes that more across much</p>
+                            <p>far aboard the futile ostrich and highhanded beyond imperative other classic while dull bearishly sulky near more while much wow.</p>
+                            <ul class="check-list">
+                                <li>Beautiful Class Rooms</li>
+                                <li>Lush Play Ground</li>
+                                <li>Secure Building</li>
+                                <li>Gaming Room</li>
+                                <li>Pick and Drop</li>
+                                <li>Breakfast - Lunch</li>
+                                <li>Sports Activities</li>
+                            </ul>
+                        </div>
                     </div>
+                    <!-- About Text -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <!-- About Nersery -->
+        <!-- Weekly Classes
+        <section class="weekly-classes tc-padding">
+            <div class="container">
 
-    {{-- end about us--}}
+                <div class="main-heading-holder">
+                    <div class="main-heading">
+                        <h2>Weekly Classes</h2>
+                        <p>Spluttered on that the legitimate dreadful much yikes less and roadrunner or cantankerously thus artful
+                            <br>dramatically far against caribou opposite impala without rewoun.</p>
+                    </div>
+                </div>
 
+                <div id="weekly-classes-slider" class="weekly-classes-slider">
 
-    {{-- start services --}}
+                    <div class="item">
+                        <div class="classes-column">
+                            <figure class="curve-up-small bg-1"> <img src="assets/images/weekly-classes//img-01.jpg" alt="">
+                                <div class="overlay-caption position-center-center">
+                                    <h2>Learning ABC Classes</h2> <span>Mon-Tue-Fri , 8:00 am</span> </div> <span class="search-lable"><i class="icon-star-full"></i></span> </figure>
+                            <div class="classes-detail after-clear"> <img class="teacher-img" src="assets/images/s-teacher-imgs/img-01.jpg" alt="">
+                                <div class="aurthor-name">
+                                    <h3>Shana Wilson</h3> <span>Class Trainer</span> </div>
+                                <ul>
+                                    <li> <i class="icon-boy-and-girl-students"></i> <span>1 - 2 </span> <strong>Years Old</strong> </li>
+                                    <li> <i class="icon-open-book"></i> <span>12</span> <strong>Class size</strong> </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="classes-btm"> <a class="tc-btn shadow-0" href="#">$29 Per Session</a> </div>
+                    </div>
 
-    <!-- Section: Services -->
-    <section class=" bg-lighter">
-        <div class="container pb-20">
-            <div class="section-title text-center">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.services')}}</h2>
-                        <div class="title-icon">
-                            <img class="mb-10" src="images/title-icon.png" alt="">
+                    <div class="item">
+                        <div class="classes-column">
+                            <figure class="curve-up-small bg-2"> <img src="assets/images/weekly-classes//img-02.jpg" alt="">
+                                <div class="overlay-caption position-center-center">
+                                    <h2>Learning ABC Classes</h2> <span>Mon-Tue-Fri , 8:00 am</span> </div> <span class="search-lable"><i class="icon-star-full"></i></span> </figure>
+                            <div class="classes-detail after-clear"> <img class="teacher-img" src="assets/images/s-teacher-imgs/img-02.jpg" alt="">
+                                <div class="aurthor-name">
+                                    <h3>Shana Wilson</h3> <span>Class Trainer</span> </div>
+                                <ul>
+                                    <li> <i class="icon-boy-and-girl-students"></i> <span>1 - 2 </span> <strong>Years Old</strong> </li>
+                                    <li> <i class="icon-open-book"></i> <span>12</span> <strong>Class size</strong> </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="classes-btm"> <a class="tc-btn shadow-0" href="#">$29 Per Session</a> </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="classes-column">
+                            <figure class="curve-up-small bg-3"> <img src="assets/images/weekly-classes//img-03.jpg" alt="">
+                                <div class="overlay-caption position-center-center">
+                                    <h2>Learning ABC Classes</h2> <span>Mon-Tue-Fri , 8:00 am</span> </div> <span class="search-lable"><i class="icon-star-full"></i></span> </figure>
+                            <div class="classes-detail after-clear"> <img class="teacher-img" src="assets/images/s-teacher-imgs/img-03.jpg" alt="">
+                                <div class="aurthor-name">
+                                    <h3>Shana Wilson</h3> <span>Class Trainer</span> </div>
+                                <ul>
+                                    <li> <i class="icon-boy-and-girl-students"></i> <span>1 - 2 </span> <strong>Years Old</strong> </li>
+                                    <li> <i class="icon-open-book"></i> <span>12</span> <strong>Class size</strong> </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="classes-btm"> <a class="tc-btn shadow-0" href="#">$29 Per Session</a> </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        Weekly Classes -->
+        <!-- Team -->
+        <section class="tc-padding-bottom"> <img src="assets/images/light-bg.png" alt="">
+            <div class="container">
+                <!-- Main Heading -->
+                <div class="main-heading-holder">
+                    <div class="main-heading">
+                        <h2>Teaching team</h2>
+                        <p>Destructively after weasel reindeer because this wow through</p>
+                    </div>
+                </div>
+                <!-- Main Heading -->
+                <!-- Team List -->
+                <div id="team-slider" class="team-slider">
+                    <div class="item">
+                        <div class="team-figure out-stock">
+                            <div class="aurthor-name">
+                                <h3>Shana Wilson</h3> <span>Kinder Garten</span> </div>
+                            <figure> <img src="assets/images/team/img-01.jpg" alt=""> </figure>
+                            <div class="on-hover">
+                                <div class="tc-social-icons">
+                                    <ul>
+                                        <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+                                        <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+                                        <li><a class="google-plus" href="#"><i class="icon-google-plus"></i></a></li>
+                                    </ul>
+                                </div> <a href="#" class="tc-btn" data-toggle="modal" data-target="#team-detail-modal">View Profile</a> </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="team-figure">
+                            <div class="aurthor-name">
+                                <h3>Tina Firgoson</h3> <span>Kinder Garten</span> </div>
+                            <figure> <img src="assets/images/team/img-02.jpg" alt=""> </figure>
+                            <div class="on-hover">
+                                <div class="tc-social-icons">
+                                    <ul>
+                                        <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+                                        <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+                                        <li><a class="google-plus" href="#"><i class="icon-google-plus"></i></a></li>
+                                    </ul>
+                                </div> <a href="#" class="tc-btn" data-toggle="modal" data-target="#team-detail-modal">View Profile</a> </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="team-figure">
+                            <div class="aurthor-name">
+                                <h3>Time Walters</h3> <span>Kinder Garten</span> </div>
+                            <figure> <img src="assets/images/team/img-03.jpg" alt=""> </figure>
+                            <div class="on-hover">
+                                <div class="tc-social-icons">
+                                    <ul>
+                                        <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+                                        <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+                                        <li><a class="google-plus" href="#"><i class="icon-google-plus"></i></a></li>
+                                    </ul>
+                                </div> <a href="#" class="tc-btn" data-toggle="modal" data-target="#team-detail-modal">View Profile</a> </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="team-figure">
+                            <div class="aurthor-name">
+                                <h3>Penny Brace</h3> <span>Kinder Garten</span> </div>
+                            <figure> <img src="assets/images/team/img-04.jpg" alt=""> </figure>
+                            <div class="on-hover">
+                                <div class="tc-social-icons">
+                                    <ul>
+                                        <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+                                        <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+                                        <li><a class="google-plus" href="#"><i class="icon-google-plus"></i></a></li>
+                                    </ul>
+                                </div> <a href="#" class="tc-btn" data-toggle="modal" data-target="#team-detail-modal">View Profile</a> </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="team-figure out-stock">
+                            <div class="aurthor-name">
+                                <h3>Shana Wilson</h3> <span>Class Trainer</span> </div>
+                            <figure> <img src="assets/images/team/img-01.jpg" alt=""> </figure>
+                            <div class="on-hover">
+                                <div class="tc-social-icons">
+                                    <ul>
+                                        <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+                                        <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+                                        <li><a class="google-plus" href="#"><i class="icon-google-plus"></i></a></li>
+                                    </ul>
+                                </div> <a href="#" class="tc-btn" data-toggle="modal" data-target="#team-detail-modal">View Profile</a> </div>
                         </div>
                     </div>
                 </div>
+                <!-- Team List -->
             </div>
-            <div class="section-content">
+        </section>
+        <!-- Team -->
+        <!-- Testimonial -->
+        <section class="testimonial-holder" style="background: url(assets/images/testimonial-bg.jpg) no-repeat center bottom;">
+            <div class="container">
                 <div class="row">
-                    @foreach($services as $service)
-                        @foreach($service->description as $description)
-                            @if($description->language->label == LaravelLocalization::getCurrentLocale())
-                                <div class="col-xs-12 col-sm-6 col-md-4">
-                                    <div class="icon-box left media p-0"> <a href="{{route('services.details',$description->slug)}}" class="media-left pull-left"><i class="{{$service->icon}} text-theme-colored"></i></a>
-                                        <div class="media-body">
-                                            <h5 class="media-heading heading"><a href="{{route('services.details',$description->slug)}}">{{$description->title}}</a></h5>
-                                            {!! str_limit(html_entity_decode($description->description),100) !!}
-                                        </div>
-                                    </div>
+                    <div class="col-lg-offset-1 col-lg-10">
+                        <h3 class="curve-heading">Testimonials</h3> <span class="search-lable"><i class="icon-quotes-left"></i></span>
+                        <ul id="testimonial-slider" class="testimonial-slider after-clear">
+                            <li>
+                                <div class="text">
+                                    <p>Much flew yikes wholeheartedly goodness hey changed considering mongoose delinquent affectionately piranha flustered testy versus including darn and a much while outside alas a intricately due manatee kookaburra aardvark the llama jaded much far darn.</p>
+                                    <div class="aurthor-name">
+                                        <h3>Tim Bickson</h3> <span>Father of Oma Bickson (Kinder Garten)</span> </div>
+                                    <div class="img"> <img src="assets/images/s-teacher-imgs/img-01.jpg" alt=""> </div>
                                 </div>
-                            @endif
-                        @endforeach
-                    @endforeach
-
-                </div>
-            </div>
-        </div>
-    </section>
-    {{-- end services--}}
-
-
-    {{-- Our teachers--}}
-    <!-- Section: Teachers -->
-    <section id="doctors">
-        <div class="container">
-            <div class="section-title text-center">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.teachers')}}</h2>
-                        <div class="title-icon">
-                            <img class="mb-10" src="images/title-icon.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mtli-row-clearfix">
-                <div class="col-md-12">
-                    <div class="owl-carousel-4col">
-                        @foreach($teachers as $teacher)
-                            @foreach($teacher->description as $description)
-                                @if($description->language->label == LaravelLocalization::getCurrentLocale())
-                                    <div class="item">
-                                        <div class="team-members border-bottom-theme-color-2px text-center maxwidth400">
-                                            <div class="team-thumb">
-                                                <img class="img-fullwidth" alt="" src="{{asset('uploads/teachers/275x370/'.$teacher->image_url)}}">
-                                                <div class="team-overlay"></div>
-                                            </div>
-                                            <div class="team-details bg-silver-light pt-10 pb-10">
-                                                <h4 class="text-uppercase font-weight-600 m-5">{{$description->name}}</h4>
-                                                <h6 class="text-theme-colored font-15 font-weight-400 mt-0">{{$description->job_title}}</h6>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    {{-- Our doctors--}}
-
-
-
-
-
-
-    {{-- gallery --}}
-    <div class="container">
-        <div class="section-content">
-            <div class="section-title text-center">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.gallery')}}</h2>
-                        <div class="title-icon">
-                            <img class="mb-10" src="images/title-icon.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="portfolio-content portfolio-1">
-                    <div id="js-filters-juicy-projects" class="cbp-l-filters-button">
-                        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item btn dark btn-outline uppercase"> All
-                            <div class="cbp-filter-counter"></div>
-                        </div>
-                        @foreach($galleries as $gallery)
-                            @foreach($gallery->description as $description)
-                                @if($description->language->label == LaravelLocalization::getCurrentLocale())
-                                    <div data-filter=".gallery{{$gallery->id}}" class="cbp-filter-item btn dark btn-outline uppercase"> {{$description->title}}
-                                        <div class="cbp-filter-counter"></div>
-                                    </div>
-
-                                @endif
-                            @endforeach
-                        @endforeach
-
-                    </div>
-                    <div id="js-grid-juicy-projects" class="cbp">
-                        @foreach($galleries as $gallery)
-                            @foreach($gallery->media->take(8) as $media)
-                                <div class="cbp-item gallery{{$gallery->id}}">
-                                    <div class="cbp-caption">
-                                        <div class="cbp-caption-defaultWrap">
-
-                                            @if($media->type == '1')
-                                                <img src="{{asset('uploads/galleries/admin/1.png')}}" alt="">
-                                            @else
-                                                <img src="{{asset('uploads/galleries/admin/600x600/'.$media->image_url)}}" alt="">
-                                            @endif
-
-                                        </div>
-                                        <div class="cbp-caption-activeWrap">
-                                            <div class="cbp-l-caption-alignCenter">
-                                                <div class="cbp-l-caption-body">
-                                                    @if($media->type == '1')
-                                                        <a href="https://www.youtube.com/watch?v={{$media->video_url}}" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">{{trans('admin/galleries.view_larger')}}</a>
-                                                    @else
-                                                        <a href="{{asset('uploads/galleries/admin/1200x900/'.$media->image_url)}}" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">{{trans('admin/galleries.view_larger')}}</a>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                            </li>
+                            <li>
+                                <div class="text">
+                                    <p>Much flew yikes wholeheartedly goodness hey changed considering mongoose delinquent affectionately piranha flustered testy versus including darn and a much while outside alas a intricately due manatee kookaburra aardvark the llama jaded much far darn.</p>
+                                    <div class="aurthor-name">
+                                        <h3>Tim Bickson</h3> <span>Father of Oma Bickson (Kinder Garten)</span> </div>
+                                    <div class="img"> <img src="assets/images/s-teacher-imgs/img-01.jpg" alt=""> </div>
                                 </div>
-                            @endforeach
-                        @endforeach
-                    </div>
-
-                </div>
-
-
-
-            </div></div></div>
-    {{-- gallery --}}
-
-
-    {{-- start blog --}}
-
-    <!-- Section: blog -->
-    <section id="blog" class="">
-        <div class="container">
-            <div class="section-title text-center">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.blog')}}</h2>
-                        <div class="title-icon">
-                            <img class="mb-10" src="images/title-icon.png" alt="">
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem<br> voluptatem obcaecati!</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="section-content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="owl-carousel-3col">
-                            @foreach($blog as $singleBlog)
-                                @foreach($singleBlog->description as $description)
-                                    @if($description->language->label == LaravelLocalization::getCurrentLocale())
-                                        <div class="item">
-                                            <article class="post clearfix bg-white">
-                                                <div class="entry-header">
-                                                    <div class="post-thumb thumb">
-                                                        <img src="{{asset('uploads/blogs/540x370/'.$singleBlog->image_url)}}" alt="" class="img-responsive img-fullwidth">
-                                                    </div>
-                                                    <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
-                                                        <ul>
-                                                            <li class="font-16 text-white font-weight-600">{{ date('d' , strtotime($singleBlog->created_at)) }}</li>
-                                                            <li class="font-12 text-white text-uppercase">{{ date('F' , strtotime($singleBlog->created_at)) }}</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="entry-content p-15 pt-10 pb-10">
-                                                    <div class="entry-meta media no-bg no-border mt-0 mb-10">
-                                                        <div class="media-body pl-0">
-                                                            <div class="event-content pull-left flip">
-                                                                <h4 class="entry-title text-white text-uppercase font-weight-600 m-0 mt-5"><a href="{{route('blog.details',$singleBlog->id)}}">{{$description->title}}</a></h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <p class="mt-5">{!!  str_limit(strip_tags(html_entity_decode($description->description)),100)!!} <a class="text-theme-color-2 font-12 ml-5" href="{{route('blog.details',$singleBlog->id)}}"> View Details</a></p>
-                                                </div>
-                                            </article>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            @endforeach
+        </section>
+        <!-- Testimonial -->
+        <!-- News Letter Section -->
+        <section class="news-letter overlay-dark" data-enllax-ratio="-.3" style="background: url(assets/images/parallax-2.jpg) 50% 0% no-repeat fixed;">
+            <div class="container">
+                <div id="news-letter-slider" class="news-letter-slider">
+                    <!-- News Widget -->
+                    <div class="item">
+                        <div class="news-widget">
+                            <h3>Facebook Box</h3>
+                            <div class="featured-box widget after-clear"> <span><i class="icon-facebook"></i></span>
+                                <p>Release Our New Jekyler - Multipurpose Responsive PrestaShop Themes 24webg <a href="#">roup.com/ps/jekyler/</a></p>
 
+                            </div>
                         </div>
                     </div>
+                    <!-- News Widget -->
+                    <!-- News Widget -->
+                    <div class="item">
+                        <div class="news-widget">
+                            <h3>Twitter Feeds</h3>
+                            <div class="twitter-box widget after-clear"> <span><i class="icon-twitter"></i></span>
+                                <p>Release Our New Jekyler - Multipurpose Responsive PrestaShop Themes 24webg <a href="#">roup.com/ps/jekyler/</a></p> </div>
+                        </div>
+                    </div>
+                    <!-- News Widget -->
+                    <!-- News Widget -->
+                    <div class="item">
+                        <div class="news-widget">
+                            <h3>Weekly Newletter</h3>
+                            <div class="submit-box widget after-clear"> <span><i class="icon-envelope-o"></i></span>
+                                <form class="submit-letter">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" placeholder="Enter Full Name"> </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" placeholder="Enter Full Name"> </div>
+                                    <button class="tc-btn light shadow-0">Submit</button>
+                                </form> <i class="time">about 8 days ago</i> </div>
+                        </div>
+                    </div>
+                    <!-- News Widget -->
                 </div>
+            </div>
+        </section>
+        <!-- News Letter Section -->
+        <!-- Gallery -->
+        <section class="tc-padding">
+            <div class="container">
+                <!-- Main Heading -->
+                <div class="main-heading-holder">
+                    <div class="main-heading">
+                        <h2>Our Photo Gallery</h2>
+                        <p>Destructively after weasel reindeer because this wow through</p>
+                    </div>
+                </div>
+                <!-- Main Heading -->
+                <!-- Gallery -->
+                <div class="row">
+                    <!-- gallery Figure -->
+                    <div class="col-sm-3 col-sm-4 col-xs-6 r-full-width">
+                        <a href="show-album.html">
+                            <figure class="gallery-figure rotate-1">
+                                <img src="assets/images/gallery/img-01.jpg" alt="">
+                                <figcaption class="overlay">
+                                    <h4 class="position-center-center">School Kids Playing in Classroom</h4> </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <!-- gallery Figure -->
+                    <!-- gallery Figure -->
+                    <div class="col-sm-3 col-sm-4 col-xs-6 r-full-width">
+                        <a href="show-album.html">
+                            <figure class="gallery-figure"> <img src="assets/images/gallery/img-02.jpg" alt="">
+                                <figcaption class="overlay">
+                                    <h4 class="position-center-center">School Kids Playing in Classroom</h4> </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <!-- gallery Figure -->
+                    <!-- gallery Figure -->
+                    <div class="col-sm-3 col-sm-4 col-xs-6 r-full-width">
+                        <a href="show-album.html">
+                            <figure class="gallery-figure rotate-1"> <img src="assets/images/gallery/img-03.jpg" alt="">
+                                <figcaption class="overlay">
+                                    <h4 class="position-center-center">School Kids Playing in Classroom</h4> </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <!-- gallery Figure -->
+                    <!-- gallery Figure -->
+                    <div class="col-sm-3 col-sm-4 col-xs-6 r-full-width">
+                        <a href="show-album.html">
+                            <figure class="gallery-figure"> <img src="assets/images/gallery/img-04.jpg" alt="">
+                                <figcaption class="overlay">
+                                    <h4 class="position-center-center">School Kids Playing in Classroom</h4> </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <!-- gallery Figure -->
+                    <!-- gallery Figure -->
+                    <div class="col-sm-3 col-sm-4 col-xs-6 r-full-width">
+                        <a href="show-album.html">
+                            <figure class="gallery-figure rotate-2"> <img src="assets/images/gallery/img-05.jpg" alt="">
+                                <figcaption class="overlay">
+                                    <h4 class="position-center-center">School Kids Playing in Classroom</h4> </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <!-- gallery Figure -->
+                    <!-- gallery Figure -->
+                    <div class="col-sm-3 col-sm-4 col-xs-6 r-full-width">
+                        <a href="show-album.html">
+                            <figure class="gallery-figure rotate-1"> <img src="assets/images/gallery/img-06.jpg" alt="">
+                                <figcaption class="overlay">
+                                    <h4 class="position-center-center">School Kids Playing in Classroom</h4> </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <!-- gallery Figure -->
+                    <!-- gallery Figure -->
+                    <div class="col-sm-3 col-sm-4 col-xs-6 r-full-width hidden-xs">
+                        <a href="show-album.html">
+                            <figure class="gallery-figure rotate-2"> <img src="assets/images/gallery/img-07.jpg" alt="">
+                                <figcaption class="overlay">
+                                    <h4 class="position-center-center">School Kids Playing in Classroom</h4> </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <!-- gallery Figure -->
+                    <!-- gallery Figure -->
+                    <div class="col-sm-3 col-sm-4 col-xs-6 r-full-width hidden-xs">
+                        <a href="show-album.html">
+                            <figure class="gallery-figure rotate-1"> <img src="assets/images/gallery/img-08.jpg" alt="">
+                                <figcaption class="overlay">
+                                    <h4 class="position-center-center">School Kids Playing in Classroom</h4> </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <!-- gallery Figure -->
+                </div>
+                <!-- Gallery -->
+                <!-- Separater --><span class="seprate-petrn mt-80"></span>
+                <!-- Separater -->
+            </div>
+        </section>
+        <!-- Gallery -->
+        <!-- Latest Blogs -->
+        <section class="tc-padding-bottom">
+            <div class="container">
+                <!-- Main Heading -->
+                <div class="main-heading-holder">
+                    <div class="main-heading">
+                        <h2>Latest Blogs</h2>
+                        <p>Destructively after weasel reindeer because this wow through</p>
+                    </div>
+                </div>
+                <!-- Main Heading -->
+                <!-- Blogs -->
+                <div id="blog-grid-slider" class="blog-grid-slider">
+                    <!-- Blog Column -->
+                    <div class="item">
+                        <div class="blog-grid color-1">
+                            <figure> <img src="assets/images/blogs-grid/img-01.jpg" alt=""> </figure>
+                            <div class="blog-detail">
+                                <div class="meta-post">
+                                    <ul>
+                                        <li><i class="icon-calendar"></i>JULY 24, 2015</li>
+                                        <li><i class="icon-heart2"></i>25</li>
+                                        <li><i class="icon-comments"></i>48</li>
+                                    </ul>
+                                </div>
+                                <h4><a href="#">Hot Toys &amp; Sideshow New Arrivals</a></h4> <span class="seprate-petrn white mb-10"></span>
+                                <p>Aliquet nec ut risus. Phasellus condimentum, lorem eget iaculis porta, tortor arcu lacinia.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blog Column -->
+                    <!-- Blog Column -->
+                    <div class="item">
+                        <div class="blog-grid color-2">
+                            <figure> <img src="assets/images/blogs-grid/img-02.jpg" alt=""> </figure>
+                            <div class="blog-detail">
+                                <div class="meta-post">
+                                    <ul>
+                                        <li><i class="icon-calendar"></i>JULY 24, 2015</li>
+                                        <li><i class="icon-heart2"></i>25</li>
+                                        <li><i class="icon-comments"></i>48</li>
+                                    </ul>
+                                </div>
+                                <h4><a href="#">Hot Toys &amp; Sideshow New Arrivals</a></h4> <span class="seprate-petrn white mb-10"></span>
+                                <p>Aliquet nec ut risus. Phasellus condimentum, lorem eget iaculis porta, tortor arcu lacinia.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blog Column -->
+                    <!-- Blog Column -->
+                    <div class="item">
+                        <div class="blog-grid color-3">
+                            <figure> <img src="assets/images/blogs-grid/img-03.jpg" alt=""> </figure>
+                            <div class="blog-detail">
+                                <div class="meta-post">
+                                    <ul>
+                                        <li><i class="icon-calendar"></i>JULY 24, 2015</li>
+                                        <li><i class="icon-heart2"></i>25</li>
+                                        <li><i class="icon-comments"></i>48</li>
+                                    </ul>
+                                </div>
+                                <h4><a href="#">Hot Toys &amp; Sideshow New Arrivals</a></h4> <span class="seprate-petrn white mb-10"></span>
+                                <p>Aliquet nec ut risus. Phasellus condimentum, lorem eget iaculis porta, tortor arcu lacinia.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blog Column -->
+                    <!-- Blog Column -->
+                    <div class="item">
+                        <div class="blog-grid color-4">
+                            <figure> <img src="assets/images/blogs-grid/img-04.jpg" alt=""> </figure>
+                            <div class="blog-detail">
+                                <div class="meta-post">
+                                    <ul>
+                                        <li><i class="icon-calendar"></i>JULY 24, 2015</li>
+                                        <li><i class="icon-heart2"></i>25</li>
+                                        <li><i class="icon-comments"></i>48</li>
+                                    </ul>
+                                </div>
+                                <h4><a href="#">Hot Toys &amp; Sideshow New Arrivals</a></h4> <span class="seprate-petrn white mb-10"></span>
+                                <p>Aliquet nec ut risus. Phasellus condimentum, lorem eget iaculis porta, tortor arcu lacinia.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blog Column -->
+                </div>
+                <!-- Blogs -->
+            </div>
+        </section>
+        <!-- Latest Blogs -->
+        <!-- Latest Blogs
+        <div class="brands-icon mt-50">
+            <div class="container">
+                <h3><span>Affliations and Partners</span></h3>
+                <ul id="brands-slide" class="brands-slide">
+                    <li>
+                        <a href="#"><img src="assets/images/brands-icons/img-01.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="assets/images/brands-icons/img-02.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="assets/images/brands-icons/img-03.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="assets/images/brands-icons/img-04.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="assets/images/brands-icons/img-05.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="assets/images/brands-icons/img-06.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="assets/images/brands-icons/img-01.jpg" alt=""></a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    {{-- start blog --}}
-
-
+        <!-- Latest Blogs -->
+    </main>
+    <!-- Main -->
 
 @endsection
 
-@section('js')
-    <script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js')}}" type="text/javascript"></script>
 
-    <!-- END PAGE LEVEL PLUGINS -->
-
-    <!-- BEGIN PAGE LEVEL SCRIPTS -->
-    {{--<script src="../assets/pages/scripts/portfolio-1.min.js" type="text/javascript"></script>--}}
-    <script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/pages/scripts/portfolio-1.min.js')}}" type="text/javascript"></script>
-
-@endsection
 

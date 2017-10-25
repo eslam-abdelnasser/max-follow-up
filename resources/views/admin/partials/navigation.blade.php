@@ -236,6 +236,47 @@
 
 
 
+            <li class="heading">
+                <h3 class="uppercase">Gallery</h3>
+            </li>
+
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Images</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    @if(Auth::guard('admin')->user()->can('images.index'))
+                        <li class="nav-item start">
+                            <a href="{{route('images.index')}}" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">Show images</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    @endif
+                    @if(Auth::guard('admin')->user()->can('images.create'))
+                        <li class="nav-item start">
+                            <a href="{{route('images.create',['type'=>'accreditation'])}}" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">Add new accreditation</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    @endif
+                        @if(Auth::guard('admin')->user()->can('images.create'))
+                            <li class="nav-item start">
+                                <a href="{{route('images.create',['type'=>'small-images'])}}" class="nav-link ">
+                                    <i class="icon-bar-chart"></i>
+                                    <span class="title">Add images</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        @endif
+                </ul>
+            </li>
 
             <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
@@ -309,9 +350,77 @@
                        </ul>
                    </li>
 
+                    <li class="nav-item start">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-home"></i>
+                            <span class="title">Admin structure</span>
+                            <span class="selected"></span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            @if(Auth::guard('admin')->user()->can('admin-structure.index'))
+                                <li class="nav-item start">
+                                    <a href="{{route('admin-structure.index')}}" class="nav-link nav-toggle">
+                                        <i class="icon-puzzle"></i>
+                                        <span class="title">Show Admin Structure</span>
+                                    </a>
+                                </li>
+                            @endif
+
+
+                            @if(Auth::guard('admin')->user()->can('admin-structure.create'))
+                                <li class="nav-item start">
+                                    <a href="{{route('admin-structure.create')}}" class="nav-link nav-toggle">
+                                        <i class="icon-puzzle"></i>
+                                        <span class="title">Create Admin Structure</span>
+                                    </a>
+                                </li>
+                            @endif
+                        </ul>
+                    </li>
+                    {{-- start board trustees --}}
+                    <li class="nav-item start">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-home"></i>
+                            <span class="title">Board Trustees</span>
+                            <span class="selected"></span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            @if(Auth::guard('admin')->user()->can('board-trustees.index'))
+                                <li class="nav-item start">
+                                    <a href="{{route('board-trustees.index')}}" class="nav-link nav-toggle">
+                                        <i class="icon-puzzle"></i>
+                                        <span class="title">Show Board Trustees</span>
+                                    </a>
+                                </li>
+                            @endif
+
+
+                            @if(Auth::guard('admin')->user()->can('board-trustees.create'))
+                                <li class="nav-item start">
+                                    <a href="{{route('board-trustees.create')}}" class="nav-link nav-toggle">
+                                        <i class="icon-puzzle"></i>
+                                        <span class="title">Create Board Trustees</span>
+                                    </a>
+                                </li>
+                            @endif
+                        </ul>
+                    </li>
+                    {{-- start board trustees --}}
+
                 </ul>
+
+
             </li>
              {{---  end team navigation  --}}
+
+            {{-- start admin structure --}}
+
+
+            {{---  end team navigation  --}}
+
+            {{-- end admin structure --}}
 
 
 

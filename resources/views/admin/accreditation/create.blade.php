@@ -51,7 +51,7 @@
             <div class="portlet-body form">
                 {!! Form::open([ 'route'=>['images.store'] , 'method'=>'POST' , 'id'=>'add_files' , 'class'=>'dropzone dropzone-file-area' , 'files'=>true]) !!}
                 <h3 class="sbold">{{trans('admin/galleries.drop')}}</h3>
-                <input type="hidden" name="type" value="{{ $gallery_id}}">
+                <input type="hidden" name="type" value="{{ $type}}">
 
                 {!! Form::close() !!}
                 <br>

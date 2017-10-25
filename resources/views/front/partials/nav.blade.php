@@ -1,91 +1,85 @@
-<!-- Header -->
-<header id="header" class="header">
-    <div class="header-top bg-theme-colored sm-text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="widget no-border m-0">
-                        <ul class="styled-icons icon-dark icon-theme-colored icon-sm sm-text-center">
-                            @foreach($socials as $social)
-                                <li><a href="{{$social->url}}"><i class="fa fa-{{$social->icon}}"></i></a> </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="widget no-border m-0">
-                        <ul class="list-inline pull-right flip sm-pull-none sm-text-center mt-5">
-                            <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-white"></i> <a class="text-white" href="#">{{$setting->phone}}</a> </li>
-                            <li class="text-white m-0 pl-10 pr-10"> <i class="fa fa-clock-o text-white"></i> Mon-Fri 8:00 to 2:00 </li>
-                            <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-white"></i> <a class="text-white" href="#">{{$setting->email}}</a> </li>
-                            {{--  <li class="sm-display-block mt-sm-10 mb-sm-10">
-                                 <!-- Modal: Appointment Starts -->
-                                 <a class="bg-light p-5 text-theme-colored font-11 ajaxload-popup" href="{{asset('front/ajax-load/form-appointment.html')}}">Make an Appointment</a>
-                                 <!-- Modal: Appointment End -->
-                             </li> --}}
+<!-- Navigation -->
+<nav class="navigation"> <a class="toggleMenu" href="#menu"><i class="icon-navicon"></i></a>
+    <ul class="nav-list">
+        <li><a class="color-1" href="index.html">Home</a></li>
+        <li> <a class="color-1" href="#">About</a>
+            <ul>
+                <li><a href="about.html">About School</a></li>
+                <li><a href="direc-word.html">Word of the Director</a></li>
+                <li><a href="adm-structure.html">The administrative structure</a></li>
+                <li><a class="color-1" href="teams.html">Teaching team</a></li>
+                <li><a href="why-us.html">Why Us ?</a></li>
+                <li><a href="trustees.html">Board of Trustees</a></li>
+                <li><a href="accreditation.html">Accreditation</a></li>
+                <li><a href="p-council.html">Parents Council</a></li>
+                <li> <a class="color-1" href="calender.html">School Calendar</a> </li>
+                <li><a href="vision.html">Vision</a></li>
+                <li><a href="our-letter.html">Our letter</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+            </ul>
+        </li>
+        <li class="active"> <a class="color-1" href="curriculum.html">Curriculum</a>
+            <ul>
+                <li><a href="kg.html">KG</a></li>
+                <li><a href="primary-stage.html">Primary stage</a></li>
+                <li><a href="middle-school.html">Middle School</a></li>
+                <li><a href="high-school.html">High school</a></li>
+            </ul>
+        </li>
+        <li> <a class="color-1" href="e-system.html">Electronic system</a>
+            <ul>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="parents.html">Parents and students</a></li>
+            </ul>
+        </li>
 
-
-
-                            @if(LaravelLocalization::getCurrentLocale() == 'en')
-                                <li class="sm-display-block mt-sm-10 mb-sm-10">
-                                    <a  class="bg-light p-5 text-theme-colored font-11"  href="{{LaravelLocalization::getLocalizedURL('ar') }}">عربي</a>
-                                </li>
-                            @else
-                                <li class="sm-display-block mt-sm-10 mb-sm-10"><a  class="bg-light p-5 text-theme-colored font-11" href="{{LaravelLocalization::getLocalizedURL('en') }}">English</a></li>
-                            @endif
-
-
-
-                        </ul>
-                    </div>
-                </div>
+        <li> <a class="color-1" href="activities.html">Activities</a>
+            <ul>
+                <li><a href="prev-act.html">Previous</a></li>
+                <li><a href="current-act.html">Current</a></li>
+                <li><a class="color-1" href="coming-act.html">Coming</a></li>
+            </ul>
+        </li>
+        <!-- Logo -->
+        <center><div class="logo pull-left">
+                <a href="index.html"><img src="{{asset('front/assets/images/logo1.png')}}" style="width: 150px" alt=""></a>
             </div>
-        </div>
-    </div>
-    <div class="header-nav">
-        <div class="header-nav-wrapper navbar-scrolltofixed bg-lightest">
-            <div class="container">
-                <nav id="menuzord-right" class="menuzord blue bg-lightest">
-                    <a class="menuzord-brand pull-left flip" href="javascript:void(0)">
-                        <img src="{{asset('front/images/logo-wide.png')}}" alt="">
-                    </a>
-                    {{--<div id="side-panel-trigger" class="side-panel-trigger"><a href="#"><i class="fa fa-bars font-24 text-gray"></i></a></div>--}}
-                    <ul class="menuzord-menu">
+        </center>
+        <!-- Logo -->
+        <li> <a class="color-1" href="#">Submission</a>
+            <ul>
+                <li><a href="terms.html">Terms and stages of submission</a></li>
+                <li><a href="application.html">Application Form</a></li>
+                <li><a class="color-1" href="papers.html">Necessary Papers</a></li>
+                <li><a class="color-1" href="req.html">Requirements</a></li>
+                <li><a class="color-1" href="uniform.html">School Uniform</a></li>
+            </ul>
+        </li>
+        <li> <a class="color-1" href="news.html">News</a> </li>
+        <li> <a class="color-1" href="facilities.html">Our Facilities</a>
+            <ul>
+                <li><a href="lib.html">Library</a></li>
+                <li><a href="athletics..html">Athletics</a></li>
+                <li><a class="color-1" href="papers.html">Computer and Acoustics Labs</a></li>
+                <li><a class="color-1" href="rooms.html">Classrooms</a></li>
+                <li><a class="color-1" href="stu-act.html">Student Activities</a></li>
+                <li><a class="color-1" href="art-gallery.html">Art Gallery</a></li>
+                <li><a class="color-1" href="achievements.html">Achievements</a></li>
+                <li><a class="color-1" href="transport.html">Buses and transportation</a></li>
+            </ul>
+        </li>
+        <li> <a class="color-1" href="blog.html">Blog</a> </li>
 
-                        <li class="  "><a href='{{ url("/" , LaravelLocalization::setLocale()) }}'>{{trans('front.home')}}</a>
-
-                        </li>
-
-                        <li><a href='#'>{{trans('front.about_us')}}</a>
-
-                            <ul class="dropdown">
-                                <li><a href='{{route("about-us")}}'>{{trans('front.about_us')}}</a></li>
-                                <li><a href='{{route('services')}}'>{{trans('front.services')}}</a></li>
-                                <li><a href="{{route('education-level')}}">{{trans('front.education_level')}}</a></li>
-                                <li><a href="{{route('supervisor')}}">{{trans('front.supervisor')}}</a></li>
-                                <li><a href="{{route('admission-roles')}}">{{trans('front.admission_role')}}</a></li>
-                            </ul>
-
-                        </li>
-
-                        <li><a href='{{route('blog')}}'>{{trans('front.blog')}}</a></li>
-
-                        <li><a href='{{route('laboratories')}}'>{{trans('front.laboratory')}}</a></li>
-
-                        <li><a href='{{route('teachers')}}'>{{trans('front.teachers')}}</a></li>
-
-                        <li><a href='{{route('news')}}'>{{trans('front.news')}}</a></li>
-                        <li><a href='{{route('activities')}}'>{{trans('front.activities')}}</a></li>
-                        <li><a href='{{route('media')}}'>{{trans('front.media')}}</a></li>
-
-
-                        <li><a href='{{route('careers')}}'>{{trans('front.careers')}}</a></li>
-                        <li><a href='{{route('contact-us')}}'>{{trans('front.contact_us')}}</a></li>
-
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- end header -->
+        <li> <a class="color-1" href="contact.html">Contact Us</a>
+            <ul style="left: -66px;">
+                <li><a href="contact.html">Contact the school</a></li>
+                <li><a href="admin..html">Administration</a></li>
+                <li><a class="color-1" href="stu-affairs.html">Students Affairs</a></li>
+                <li><a class="color-1" href="accounts.html">Accounts</a></li>
+                <li><a class="color-1" href="recruit.html">Recruit</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!-- Navigation -->

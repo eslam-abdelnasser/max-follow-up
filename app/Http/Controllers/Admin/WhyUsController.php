@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\WhyUs ;
 use App\Models\WhyUsDescription ;
 use App\Models\Language ;
+use File ;
+use Image ;
 class WhyUsController extends Controller
 {
 
@@ -76,7 +78,7 @@ class WhyUsController extends Controller
         $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
         $file->move($dir , $fileName);
         // resize image using intervention
-//        Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'.$fileName);
+        Image::make($dir . $fileName)->resize(74, 68)->save($dir.$fileName);
 //        Image::make($dir . $fileName)->resize(80, 55)->save($dir.'80x55/'.$fileName);
 //        Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
         $whyUs->image_url = $fileName ;
@@ -158,7 +160,7 @@ class WhyUsController extends Controller
             $file = $request->file('image_url') ;
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
-
+            Image::make($dir . $fileName)->resize(74, 68)->save($dir.$fileName);
             $whyUs->image_url = $fileName ;
         }
 

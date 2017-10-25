@@ -48,54 +48,76 @@
                             {{Form::open(['route' => ['admin.about.update',$about->id] , 'method' => 'put','files'=>true]) }}
                             <div class="tab-content">
 
-                                @foreach($languages as $language)
-                                    <div class="tab-pane {{$loop->iteration == 1 ? 'active' : ''}}" id="{{$language->name}}">
+                                @foreach($about->description as $description)
+                                    <div class="tab-pane {{$loop->iteration == 1 ? 'active' : ''}}" id="{{$description->language->name}}">
                                         <div class="portlet-body form">
 
                                             <div class="form-body">
                                                 <div class="form-group">
-                                                    <label> {{trans('admin/services.title')}} {{trans('admin/services.'.$language->name )}} </label>
+                                                    <label> {{trans('admin/services.title')}} {{trans('admin/services.'.$description->language->name )}} </label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="title_{{$language->label}}" value="{{old('title_'.$language->label)}}" id="title_{{$language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.title')}} "> </div>
+                                                        <input type="text" name="title_{{$description->language->label}}" value="{{$description->title}}" id="title_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.title')}} "> </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label> {{trans('admin/services.description')}} {{trans('admin/services.'.$language->name )}} </label>
+                                                    <label> {{trans('admin/services.description')}} {{trans('admin/services.'.$description->language->name )}} </label>
                                                     <div class="input-group">
 
-                                                <textarea class="my-editor" name="description_{{$language->label}}" id="description_{{$language->label}}" placeholder="Description">
-                                                     {{old('description_'.$language->label)}}
+                                                <textarea class="my-editor" name="description_{{$description->language->label}}" id="description_{{$description->language->label}}" placeholder="Description">
+                                                     {{$description->description}}
                                                 </textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label> {{trans('admin/services.meta_title')}} {{trans('admin/services.'.$language->name )}} </label>
+                                                    <label> {{trans('admin/services.meta_title')}} {{trans('admin/services.'.$description->language->name )}} </label>
                                                     <div class="input-group">
   <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="meta_title_{{$language->label}}" value="{{old('meta_title_'.$language->label)}}" id="meta_title_{{$language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.meta_title')}}"> </div>
+                                                        <input type="text" name="meta_title_{{$description->language->label}}" value="{{$description->meta_title}}" id="meta_title_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.meta_title')}}"> </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label> {{trans('admin/services.meta_description')}} {{trans('admin/services.'.$language->name )}}</label>
+                                                    <label> {{trans('admin/services.meta_description')}} {{trans('admin/services.'.$description->language->name )}}</label>
 
                                                     <div class="input-group">
 <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="meta_description_{{$language->label}}" value="{{old('meta_description_'.$language->label)}}" id="meta_description_{{$language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.meta_description')}}"> </div>
+                                                        <input type="text" name="meta_description_{{$description->language->label}}" value="{{$description->meta_description}}" id="meta_description_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.meta_description')}}"> </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
                             </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">{{trans('admin/services.upload_image')}}</label>
+                                <div class="col-md-9">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                            @if(isset($about->image_url))
+                                                <img src="{{asset('uploads/about-us/'.$about->image_url)}}" alt="" />
+                                            @else
+                                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                            @endif
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                        <div>
+                                            <span class="btn default btn-file">
+                                            <span class="fileinput-new"> {{trans('admin/services.select_image')}} </span>
+                                            <span class="fileinput-exists"> {{trans('admin/services.change')}} </span>
+                                            <input type="file" name="image_url"> </span>
+                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> {{trans('admin/services.remove')}} </a>
+                                        </div>
+                                    </div>
 
+                                </div>
+                            </div>
 
                             <div class="form-actions">
                                 <button type="submit" class="btn blue">{{trans('admin/about/index.submit')}}  </button>
