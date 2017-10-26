@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Blog;
-use App\Models\BlogDescription;
-use App\Models\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\News ;
+use App\Models\NewsDescription ;
 use Image ;
-use File;
-
-class BlogController extends Controller
+use File ;
+use App\Models\Language ;
+class NewsController extends Controller
 {
+    protected $language ;
+
+
+    public function __construct()
+    {
+        $this->language = Language::where('status','=','1')->get();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +26,8 @@ class BlogController extends Controller
     public function index()
     {
         //
-        $blogs = Blog::all();
-        return view('admin.blogs.index')->with('blogs',$blogs);
+        $new = News::all();
+        return view('admin.news.index')->withNews($new);
     }
 
     /**
@@ -32,9 +38,7 @@ class BlogController extends Controller
     public function create()
     {
         //
-        $languages = Language::where('status','=','1')->get();
-        return view('admin.blogs.create')->with('languages',$languages);
-
+        return view('admin.news.create')->with('languages',$this->language);
     }
 
     /**
@@ -46,47 +50,41 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         //
-        $languages = Language::where('status','=','1')->get();
         $rules = [
             'image_url' => 'required',
-            'homepage_status' => 'required',
             'status' => 'required'
         ];
-        foreach ($languages as  $language){
-            $rules['auther_name_'.$language->label] = 'required';
+        foreach ($this->language as  $language){
             $rules['title_'.$language->label] = 'required|max:255';
             $rules['description_'.$language->label] = 'required';
             $rules['meta_title_'.$language->label] = 'required|max:255';
             $rules['meta_description_'.$language->label] = 'required|max:255';
-            $rule['slug_'.$language->label] = 'required';
+            $rule['slug_'.$language->label] = 'required|unique:news-description,slug';
         }
 
 
         $this->validate($request,$rules);
 
-        $blog = new Blog();
-        $blog->home_page_status = $request->homepage_status;
-        $blog->status = $request->status;
+        $news = new News();
+        $news->status = $request->status;
 
 
         //upload image to server directory to service
-        $dir = public_path().'/uploads/blogs/';
+        $dir = public_path().'/uploads/news/';
         $file = $request->file('image_url') ;
         $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
         $file->move($dir , $fileName);
         // resize image using intervention
-        Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'.$fileName);
-        Image::make($dir . $fileName)->resize(80, 55)->save($dir.'80x55/'.$fileName);
-        Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
-        $blog->image_url = $fileName ;
-        $blog->save();
+        Image::make($dir . $fileName)->resize(790, 433)->save($dir.'790x433/'.$fileName);
+        Image::make($dir . $fileName)->resize(1079, 646)->save($dir.'1079x646/'.$fileName);
+        $news->image_url = $fileName ;
+        $news->save();
 
-        foreach ($languages as $language){
-            $blogDescription = new BlogDescription();
+        foreach ($this->language as $language){
+            $blogDescription = new NewsDescription();
             $blogDescription->lang_id = $language->id;
-            $blogDescription->blog_id = $blog->id;
+            $blogDescription->news_id = $news->id;
 
-            $blogDescription->auther_name = $request->get('auther_name_'.$language->label);
             $blogDescription->title = $request->get('title_'.$language->label);
             $blogDescription->meta_title = $request->get('meta_title_'.$language->label);
             $blogDescription->description = $request->get('description_'.$language->label);
@@ -94,9 +92,8 @@ class BlogController extends Controller
             $blogDescription->slug = $request->get('slug_'.$language->label);
             $blogDescription->save();
         }
-        session()->flash('message','Blog Added successfully');
+        session()->flash('message','New Added successfully');
         return redirect()->back();
-
     }
 
     /**
@@ -119,10 +116,8 @@ class BlogController extends Controller
     public function edit($id)
     {
         //
-        $blog = Blog::find($id);
-        $languages = Language::where('status','=','1')->get();
-        return view('admin.blogs.edit')->with('blog',$blog)->with('languages',$languages);
-
+        $news = News::find($id);
+        return view('admin.news.edit')->with('new', $news)->with('languages',$this->language);
     }
 
     /**
@@ -135,16 +130,11 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         //
-
-        $languages = Language::where('status','=','1')->get();
         $rules = [
-            'image_url' => 'required',
-            'homepage_status' => 'required',
             'status' => 'required'
         ];
-        foreach ($languages as  $language){
+        foreach ($this->language as  $language){
 
-            $rules['auther_name_'.$language->label] = 'required';
             $rules['title_'.$language->label] = 'required|max:255';
             $rules['slug_'.$language->label] = 'required|max:255';
             $rules['description_'.$language->label] = 'required';
@@ -155,35 +145,31 @@ class BlogController extends Controller
 
         $this->validate($request,$rules);
 
-        $blog = Blog::find($id);
-        $blog->home_page_status = $request->homepage_status;
-        $blog->status = $request->status;
+        $news = News::find($id);
+        $news->status = $request->status;
 
         if($request->hasFile('image_url')){
             //upload image to server directory to service
-            $dir = public_path().'/uploads/blogs/';
-            File::delete($dir . $blog->image_url);
+            $dir = public_path().'/uploads/news/';
+            File::delete($dir.'790x433/' . $news->image_url);
+            File::delete($dir.'1079x646/' . $news->image_url);
             $file = $request->file('image_url') ;
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
             // resize image using intervention
-            Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'.$fileName);
-            Image::make($dir . $fileName)->resize(80, 55)->save($dir.'  80x55/'.$fileName);
-            Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
-            $blog->image_url = $fileName ;
+            Image::make($dir . $fileName)->resize(790, 433)->save($dir.'790x433/'.$fileName);
+            Image::make($dir . $fileName)->resize(1079, 646)->save($dir.'1079x646/'.$fileName);
+            $news->image_url = $fileName ;
         }
 
-        $blog->save();
+        $news->save();
 
 
-        $languages = Language::where('status','=','1')->get();
-        foreach ($languages as $language){
-            foreach($blog->description  as $description){
+        foreach ($this->language as $language){
+            foreach($news->description  as $description){
                 if($description->lang_id == $language->id){
                     $description->lang_id = $language->id;
-                    $description->blog_id = $blog->id;
-
-                    $description->auther_name = $request->get('auther_name_'.$language->label);
+                    $description->news_id = $news->id;
                     $description->title = $request->get('title_'.$language->label);
                     $description->slug = $request->get('slug_'.$language->label);
                     $description->meta_title = $request->get('meta_title_'.$language->label);
@@ -193,9 +179,8 @@ class BlogController extends Controller
                 }
             }
         }
-        session()->flash('message','Blog Updated successfully');
+        session()->flash('message','New Updated successfully');
         return redirect()->back();
-
     }
 
     /**
@@ -207,16 +192,36 @@ class BlogController extends Controller
     public function destroy($id)
     {
         //
-        Blog::destroy($id);
-        session()->flash('message','Blog deleted successfully');
+        News::destroy($id);
+        session()->flash('message','New deleted successfully');
         return redirect()->back();
     }
 
     public function destroyAll(Request $request){
 
-        Blog::whereIn('id',explode(',',$request->items))->delete();
-        session()->flash('message','All  selected Blogs deleted successfully');
+        News::whereIn('id',explode(',',$request->items))->delete();
+        session()->flash('message','All  selected News deleted successfully');
         return redirect()->back();
     }
 
+
+    public function showImages($id)
+    {
+
+    }
+
+    public function storeImage()
+    {
+
+    }
+
+    public function deleteImage($id)
+    {
+
+    }
+
+    public function createImage($id)
+    {
+
+    }
 }

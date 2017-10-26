@@ -232,9 +232,38 @@
                     @endif
                 </ul>
             </li>
-
             {{-- end testimonial module  --}}
+            {{-- start news module--}}
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">News</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    @if(Auth::guard('admin')->user()->can('news.index'))
+                        <li class="nav-item start">
+                            <a href="{{route('news.index')}}" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">Show News</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    @endif
+                    @if(Auth::guard('admin')->user()->can('news.create'))
+                        <li class="nav-item start">
+                            <a href="{{route('news.create')}}" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">Add new New</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
 
+            {{-- start news module--}}
             {{-- start Faq module  --}}
             <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
@@ -475,6 +504,37 @@
                             @endif
                         </ul>
                     </li>
+
+                    {{--starting teaching stuff --}}
+                    <li class="nav-item start">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-home"></i>
+                            <span class="title">Teaching stuff</span>
+                            <span class="selected"></span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            @if(Auth::guard('admin')->user()->can('teaching-stuff.index'))
+                                <li class="nav-item start">
+                                    <a href="{{route('teaching-stuff.index')}}" class="nav-link nav-toggle">
+                                        <i class="icon-puzzle"></i>
+                                        <span class="title">Show Teaching stuff</span>
+                                    </a>
+                                </li>
+                            @endif
+
+
+                            @if(Auth::guard('admin')->user()->can('teaching-stuff.create'))
+                                <li class="nav-item start">
+                                    <a href="{{route('teaching-stuff.create')}}" class="nav-link nav-toggle">
+                                        <i class="icon-puzzle"></i>
+                                        <span class="title">Create Teaching stuff</span>
+                                    </a>
+                                </li>
+                            @endif
+                        </ul>
+                    </li>
+                    {{--starting teaching stuff --}}
                     {{-- start board trustees --}}
                     <li class="nav-item start">
                         <a href="javascript:;" class="nav-link nav-toggle">

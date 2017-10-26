@@ -8,6 +8,7 @@
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/socicon/socicon.css')}}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <style>
         table > tbody > tr > td{
@@ -45,7 +46,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('education-level.create')}}'" class="btn sbold green"> {{trans('admin/blog.add_new')}}
+                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('teaching-stuff.create')}}'" class="btn sbold green"> {{trans('admin/blog.add_new')}}
                                         <i class="fa fa-plus"></i>
                                     </button>
 
@@ -59,7 +60,7 @@
 
                         </div>
                     </div>
-                    {!! Form::open(['route' => ['education-level.destroy.all'] , 'method' => 'delete', 'id'=>'form-delete']) !!}
+                    {!! Form::open(['route' => ['teaching-stuff.destroy.all'] , 'method' => 'delete', 'id'=>'form-delete']) !!}
                     <input type="hidden"  value="" name="items" id="items"/>
                     {!! Form::close() !!}
                     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
@@ -72,55 +73,53 @@
                                 </label>
                             </th>
                             <th>#</th>
-                            <th class="text-center"> School Level </th>
-                            <th class="text-center"> {{trans('admin/blog.blog_title')}} </th>
+                            <th class="text-center"> Teacher name </th>
+                            <th class="text-center"> Job title </th>
+                            <th class="text-center">Social Links</th>
+                            <th class="text-center"> Status </th>
 
-                            <th class="text-center"> {{trans('admin/services.status')}} </th>
-
-                            <th class="text-center"> {{trans('admin/services.action')}} </th>
-                            <th class="text-center">Images</th>
+                            <th class="text-center"> Action </th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        @foreach($educations as $education)
+                        @foreach($team as $singleTeam)
                             <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" name="checkbox[]" class="checkboxes sub_chk" value="{{$education->id}}" data-id="{{$education->id}}" />
+                                        <input type="checkbox" name="checkbox[]" class="checkboxes sub_chk" value="{{$singleTeam->id}}" data-id="{{$singleTeam->id}}" />
                                         <span></span>
                                     </label>
                                 </td>
                                 <td>{{$loop->iteration}}</td>
                                 <td class="text-center">
-                                    @foreach($education->description as $description)
+                                    @foreach($singleTeam->description as $description)
 
-                                        <div><a href="#"> {{$description->school_level}} </a></div>
+                                        <div><a href="#"> {{$description->name}} </a></div>
 
                                     @endforeach
                                 </td>
                                 <td class="text-center">
-                                    @foreach($education->description as $description)
+                                    @foreach($singleTeam->description as $description)
 
-                                        <div><a href="#"> {{$description->title}} </a></div>
+                                        <div><a href="#"> {{$description->job_title}} </a></div>
 
                                     @endforeach
                                 </td>
-
+                                <td class="text-center">
+                                    <a href="{{$singleTeam->facebook_url}}"  target="_blank" class="socicon-btn socicon-twitter tooltips" data-original-title="Twitter"></a>
+                                    <a href="{{$singleTeam->tweeter_url}}" target="_blank" class="socicon-btn socicon-facebook tooltips" data-original-title="Facebook"></a>
+                                    <a href="{{$singleTeam->google_plus_url}}"  target="_blank" class="socicon-btn socicon-google tooltips" data-original-title="Google" aria-describedby="tooltip1991"></a>
+                                </td>
 
                                 <td class="text-center">
-                                    <span class="label label-sm label-{{$education->status == 0 ? 'danger' : 'success'}}"> {{$education->status == 0 ? 'inactive' : 'active'}} </span>
+                                    <span class="label label-sm label-{{$singleTeam->status == 0 ? 'danger' : 'success'}}"> {{$singleTeam->status == 0 ? 'inactive' : 'active'}} </span>
                                 </td>
                                 <td class="text-center vcenter">
-                                    <a href="{{route('education-level.edit',$education->id)}}" title="{{trans('admin/services.edit')}}"><i class="fa fa-edit"></i></a>
-                                    {!! Form::open(['route' => ['education-level.destroy',$education->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$education->id]) !!}
-                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$education->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('teaching-stuff.edit',$singleTeam->id)}}" title="{{trans('admin/services.edit')}}"><i class="fa fa-edit"></i></a>
+                                    {!! Form::open(['route' => ['teaching-stuff.destroy',$singleTeam->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$singleTeam->id]) !!}
+                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$singleTeam->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
                                     {!! Form::close() !!}
-                                </td>
-
-                                <td class="text-center">
-                                    <a href="{{route('education-level-image.create',$education->id)}}" title="{{trans('admin/admins/index.add_new_role')}}" class=><i class="fa fa-plus"></i></a>
-                                    <a href="{{route('education-level-images.index')}}" title="{{trans('admin/admins/index.view_role')}}" class=><i class="fa fa-list"></i></a>
                                 </td>
 
                             </tr>

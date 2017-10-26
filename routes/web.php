@@ -58,10 +58,21 @@ Route::group([
 
 
 
-
+    // news
+    Route::resource('/news','Admin\NewsController');
+    Route::delete('/news','Admin\NewsController@destroyAll')->name('news.destroy.all');
+       // news images
+    Route::post('/news/image' , 'Admin\NewsController@storeImage')->name('news.images.store');
+    Route::get('/news-images/{id}/show','Admin\NewsController@showImages')->name('images.index');
+    Route::get('/news-images/{id}/delete','Admin\NewsController@deleteImage')->name('images.delete');
+    Route::get('/news-images/{id}/create','Admin\NewsController@createImage')->name('images.create');
     //education level
     Route::resource('/education-level','Admin\EducationLevelController');
     Route::delete('/education-level','Admin\EducationLevelController@destroyAll')->name('education-level.destroy.all');
+    Route::get('education-level/images/show','Admin\EducationLevelController@showImages')->name('education-level-images.index');
+    Route::get('education-level-images/{id}/create','Admin\EducationLevelController@createImage')->name('education-level-image.create');
+    Route::post('education-level/images','Admin\EducationLevelController@postImages')->name('education.image.post');
+    Route::get('/education-level-image/{id}/delete','Admin\EducationLevelController@deleteImage')->name('education.level.images.delete');
     // testimonial
     Route::resource('/testimonial','Admin\TestimonialController');
     Route::delete('/testimonial','Admin\TestimonialController@destroyAll')->name('testimonial.destroy.all');
@@ -74,6 +85,10 @@ Route::group([
     //team
     Route::resource('/team','Admin\TeamController');
     Route::delete('/team','Admin\TeamController@destroyAll')->name('team.destroy.all');
+
+    // teaching stuff
+    Route::resource('/teaching-stuff','Admin\TeachingStuffController');
+    Route::delete('/teaching-stuff','Admin\TeachingStuffController@destroyAll')->name('teaching-stuff.destroy.all');
     //why us
     Route::resource('/why-us','Admin\WhyUsController');
     Route::delete('/why-us','Admin\WhyUsController@destroyAll')->name('why-us.destroy.all');

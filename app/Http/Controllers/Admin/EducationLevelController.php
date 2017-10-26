@@ -38,10 +38,10 @@ class EducationLevelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
-        return view('admin.education-level.create')->with('languages',$this->language);
+        return view('admin.education-level.create')->with('languages',$this->language)->wtihEducationId($id);
     }
 
     /**
@@ -185,6 +185,55 @@ class EducationLevelController extends Controller
 
         EducationLevel::whereIn('id',explode(',',$request->items))->delete();
         session()->flash('message','All  selected Education levels deleted successfully');
+        return redirect()->back();
+    }
+
+
+    public function showImages()
+    {
+        $images = ImageEducationLevel::all();
+//        dd($images);
+        return view('admin.education-level.images.index')->withImages($images);
+    }
+
+    public function createImage($id)
+    {
+
+        return view('admin.education-level.images.create')->withEducationId($id);
+    }
+
+
+    public  function postImages(Request $request)
+    {
+
+        $galleryId = $request->input('education_id');
+        $gallery = EducationLevel::find($galleryId);
+
+        // images uploads to gallery
+        if($request->hasFile('file')){
+            $dir = public_path().'/uploads/education-level/';
+            // check if gallery exist or not
+            if($request->hasFile('file') && count($gallery)){
+                $files = $request->file('file');
+                // looping on uploaded images
+                foreach ($files as $file) {
+                    $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
+                    $file->move($dir , $fileName);
+                    $image = new ImageEducationLevel();
+                    $image->education_level_id =  $galleryId ;
+                    $image->image_url = $fileName ;
+                    Image::make($dir . $fileName)->resize(944, 549)->save($dir . $fileName);
+                    $image->save();
+                }
+            }
+            // video uploads to gallery
+        }
+    }
+
+
+    public function deleteImage($id)
+    {
+        ImageEducationLevel::destroy($id);
         return redirect()->back();
     }
 }
